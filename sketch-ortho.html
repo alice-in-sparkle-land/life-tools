@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Chapter 4 — Orthographic Drawing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ink: #1a1614; --paper: #f5f0e8; --paper-dark: #ede7d9;
+    --accent: #8b4513; --accent-light: #c17f4a; --rule: #d4c9b5;
+  }
+
+  body {
+    background: var(--paper);
+    font-family: 'Crimson Pro', Georgia, serif;
+    color: var(--ink); min-height: 100vh;
+    padding: 36px 24px 80px;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 27px, var(--rule) 27px, var(--rule) 28px);
+  }
+
+  header { text-align: center; margin-bottom: 44px; }
+  header .ch-badge {
+    display: inline-block; font-family: 'Playfair Display', serif;
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--accent-light);
+    padding: 3px 14px; margin-bottom: 10px;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+    font-weight: 600; letter-spacing: -0.02em; line-height: 1.15;
+  }
+  header p { font-size: 1rem; font-style: italic; color: #7a6a5e; margin-top: 6px; line-height: 1.5; }
+  .hint-pill {
+    display: inline-block; margin-top: 14px; font-size: 0.8rem;
+    color: #9a8878; background: var(--paper-dark); border: 1px solid var(--rule);
+    border-radius: 2px; padding: 4px 14px; letter-spacing: 0.04em;
+  }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px; max-width: 1080px; margin: 0 auto;
+  }
+
+  .card {
+    background: #fff; border: 1px solid var(--rule);
+    box-shadow: 3px 4px 0 var(--paper-dark), 6px 8px 0 var(--rule);
+    display: flex; flex-direction: column;
+  }
+
+  .card-hdr {
+    padding: 14px 18px 11px; border-bottom: 1px solid var(--rule);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+  }
+  .card-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; line-height: 1.25; }
+  .card-desc { font-size: 0.85rem; color: #6b5c50; margin-top: 3px; font-style: italic; line-height: 1.4; }
+  .erase-btn {
+    flex-shrink: 0; background: none; border: 1px solid var(--rule); border-radius: 2px;
+    padding: 4px 10px; font-family: 'Crimson Pro', serif; font-size: 0.76rem;
+    letter-spacing: 0.06em; color: #9a8878; cursor: pointer; transition: all 0.15s; margin-top: 2px;
+  }
+  .erase-btn:hover { background: var(--paper-dark); color: var(--accent); border-color: var(--accent-light); }
+
+  /* Reference */
+  .sec-label {
+    padding: 5px 14px; font-size: 0.67rem; letter-spacing: 0.13em;
+    text-transform: uppercase; color: #9a8878; background: var(--paper-dark);
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  }
+
+  .ref-box {
+    position: relative; width: 100%; aspect-ratio: 4/3;
+    background: #fdfaf4; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ref-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    color: #b0a090; font-style: italic; font-size: 0.88rem;
+  }
+  .spinner {
+    width: 26px; height: 26px; border: 2px solid var(--rule);
+    border-top-color: var(--accent); border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .svg-wrap {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .svg-wrap svg { width: 100%; height: 100%; }
+
+  .ref-obj-label {
+    position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%);
+    background: rgba(26,22,20,0.58); color: #f5f0e8; font-size: 0.7rem;
+    padding: 2px 12px; border-radius: 20px; letter-spacing: 0.07em;
+    white-space: nowrap; pointer-events: none; z-index: 2;
+  }
+
+  .ref-actions {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px; background: var(--paper-dark);
+    border-bottom: 1px solid var(--rule);
+  }
+  .ref-new-btn {
+    background: none; border: 1px solid var(--rule); border-radius: 2px;
+    padding: 4px 13px; font-family: 'Crimson Pro', serif; font-size: 0.78rem;
+    letter-spacing: 0.06em; color: #5a4a3c; cursor: pointer; transition: all 0.15s;
+  }
+  .ref-new-btn:hover { border-color: var(--accent); color: var(--accent); background: #fff; }
+  .ref-new-btn:disabled { opacity: 0.45; cursor: default; }
+  .ref-tip { font-style: italic; font-size: 0.78rem; color: #9a8878; flex: 1; text-align: right; }
+
+  /* Canvas */
+  .canvas-wrap {
+    position: relative; width: 100%; aspect-ratio: 4/3; cursor: crosshair;
+    background: linear-gradient(var(--rule) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+    background-size: 24px 24px; background-color: #fdfaf4;
+  }
+  .ortho-guide {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(to right, transparent calc(50% - 0.5px), #c8bfb0 calc(50% - 0.5px), #c8bfb0 calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+      linear-gradient(to bottom, transparent calc(50% - 0.5px), #c8bfb0 calc(50% - 0.5px), #c8bfb0 calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  }
+  .ortho-label {
+    position: absolute; font-size: 0.62rem; color: #c0b0a0;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    font-family: 'Crimson Pro', serif; pointer-events: none;
+  }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; }
+  .stroke-ind {
+    position: absolute; bottom: 8px; right: 10px; font-size: 0.68rem;
+    color: #c4b8a8; pointer-events: none; transition: opacity 0.3s; opacity: 0; letter-spacing: 0.07em;
+  }
+  .stroke-ind.show { opacity: 1; }
+
+  .toolbar {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    padding: 9px 14px; border-top: 1px solid var(--rule); background: var(--paper-dark);
+  }
+  .tool-lbl { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #9a8878; }
+  .swatches { display: flex; gap: 5px; }
+  .sw { width: 17px; height: 17px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.1s; }
+  .sw:hover { transform: scale(1.2); }
+  .sw.on { border-color: var(--ink); transform: scale(1.15); }
+  .sens-wrap { display: flex; align-items: center; gap: 5px; margin-left: auto; }
+  .sens-wrap input { width: 68px; accent-color: var(--accent); cursor: pointer; }
+
+  .global-erase { display: flex; justify-content: center; margin: 48px auto 0; }
+  .global-erase button {
+    background: none; border: 1.5px solid var(--ink); padding: 10px 32px;
+    font-family: 'Playfair Display', serif; font-size: 1rem;
+    letter-spacing: 0.08em; color: var(--ink); cursor: pointer; transition: all 0.18s;
+  }
+  .global-erase button:hover { background: var(--ink); color: var(--paper); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ch-badge">Chapter 4</div>
+  <h1>Orthographic Drawing</h1>
+  <p>Study the reference above, then draw front, top &amp; side views below.</p>
+  <div class="hint-pill">✦ Press lightly for thin · Press firmly for thick</div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<div class="global-erase">
+  <button onclick="eraseAll()">Erase All Canvases</button>
+</div>
+
+<script>
+const objects = [
+  { label:"Card A", title:"Film Camera",    desc:"Compact body, lens, viewfinder on top.",     prompt:"A vintage compact 35mm film camera: rectangular body, large circular lens centered on front, small viewfinder bump on top-left, shutter button on top-right. Clean product line sketch on white, no shading, no fill." },
+  { label:"Card B", title:"Ceramic Mug",    desc:"Cylindrical body with a D-shaped handle.",   prompt:"A ceramic coffee mug: tall cylinder body, thick D-shaped handle attached to the right side, slightly wider at top. Simple clean line sketch, no shading, no fill." },
+  { label:"Card C", title:"Desk Lamp",      desc:"Articulated arm, cone shade, round base.",   prompt:"A modern adjustable desk lamp: flat heavy circular base, single vertical pole, angled arm joint in the middle, downward-pointing cone shade at the end. Minimal clean line sketch, no fill." },
+  { label:"Card D", title:"Sneaker",        desc:"Sole, upper, laces — side profile.",         prompt:"A classic sneaker side view: thick flat rubber sole, fabric upper, lace eyelets across the front, rounded toe cap, small heel tab. Clean product line sketch, no fill, no shading." },
+  { label:"Card E", title:"Succulent",      desc:"Rosette of leaves in a round terracotta pot.",prompt:"A small succulent plant in a simple round terracotta pot: rosette of 8 plump triangular leaves radiating from center, small round pot with a rim line. Clean botanical line sketch, no fill." },
+];
+
+const COLORS = ['#1a1614','#8b4513','#3a5a3c','#1e3a5f','#6b3fa0'];
+const CLABELS = ['Ink','Sepia','Forest','Navy','Plum'];
+const canvases=[], ctxs=[], activeCols=[], sensitivities=[], drawing=[], lastPts=[];
+
+objects.forEach((obj, idx) => {
+  document.getElementById('grid').appendChild(buildCard(obj, idx));
+});
+
+function buildCard(obj, idx) {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  // Header
+  const hdr = document.createElement('div'); hdr.className = 'card-hdr';
+  const info = document.createElement('div');
+  info.innerHTML = `<div class="card-label">${obj.label}</div><div class="card-title">${obj.title}</div><div class="card-desc">${obj.desc}</div>`;
+  const eb = document.createElement('button'); eb.className = 'erase-btn'; eb.textContent = 'Erase';
+  eb.onclick = () => eraseCanvas(idx);
+  hdr.appendChild(info); hdr.appendChild(eb);
+  card.appendChild(hdr);
+
+  // ── Reference section ──
+  const refLbl = document.createElement('div'); refLbl.className = 'sec-label';
+  refLbl.textContent = '🖼 Reference Sketch'; refLbl.style.borderTop = 'none';
+  card.appendChild(refLbl);
+
+  const box = document.createElement('div'); box.className = 'ref-box';
+  const ph = document.createElement('div'); ph.className = 'ref-placeholder';
+  ph.innerHTML = `<div class="spinner"></div><span>Generating…</span>`;
+  box.appendChild(ph);
+  const objLabel = document.createElement('div'); objLabel.className = 'ref-obj-label';
+  objLabel.textContent = obj.title; box.appendChild(objLabel);
+  card.appendChild(box);
+
+  const refAct = document.createElement('div'); refAct.className = 'ref-actions';
+  const newBtn = document.createElement('button'); newBtn.className = 'ref-new-btn'; newBtn.textContent = '↻ New Sketch';
+  const tipEl = document.createElement('span'); tipEl.className = 'ref-tip'; tipEl.textContent = 'Note proportions & edges';
+  refAct.appendChild(newBtn); refAct.appendChild(tipEl);
+  card.appendChild(refAct);
+
+  // ── Practice section ──
+  const pracLbl = document.createElement('div'); pracLbl.className = 'sec-label';
+  pracLbl.textContent = '✏️ Your Practice — front · top · side';
+  card.appendChild(pracLbl);
+
+  const wrap = document.createElement('div'); wrap.className = 'canvas-wrap';
+  const guide = document.createElement('div'); guide.className = 'ortho-guide'; wrap.appendChild(guide);
+  [
+    { text:'Top view',   style:'top:5px;left:7px' },
+    { text:'Front view', style:'bottom:5px;left:7px' },
+    { text:'Side view',  style:'bottom:5px;right:7px' },
+  ].forEach(l => {
+    const el = document.createElement('span'); el.className = 'ortho-label';
+    el.style.cssText = l.style; el.textContent = l.text; wrap.appendChild(el);
+  });
+  const canvas = document.createElement('canvas'); wrap.appendChild(canvas);
+  const ind = document.createElement('div'); ind.className = 'stroke-ind'; ind.id = `ind-${idx}`; wrap.appendChild(ind);
+  card.appendChild(wrap);
+
+  // Toolbar
+  const tb = document.createElement('div'); tb.className = 'toolbar';
+  const cl = document.createElement('span'); cl.className = 'tool-lbl'; cl.textContent = 'Color'; tb.appendChild(cl);
+  const swEl = document.createElement('div'); swEl.className = 'swatches';
+  COLORS.forEach((c, ci) => {
+    const s = document.createElement('div');
+    s.className = 'sw'+(ci===0?' on':''); s.style.background=c; s.title=CLABELS[ci];
+    s.onclick = () => { activeCols[idx]=c; swEl.querySelectorAll('.sw').forEach((e,j)=>e.classList.toggle('on',j===ci)); };
+    swEl.appendChild(s);
+  });
+  tb.appendChild(swEl);
+  const sw2 = document.createElement('div'); sw2.className = 'sens-wrap';
+  const sl = document.createElement('span'); sl.className = 'tool-lbl'; sl.textContent = 'Sensitivity';
+  const si = document.createElement('input'); si.type='range'; si.min=1; si.max=5; si.value=3;
+  si.oninput = () => { sensitivities[idx]=parseFloat(si.value); };
+  sw2.appendChild(sl); sw2.appendChild(si); tb.appendChild(sw2);
+  card.appendChild(tb);
+
+  // Register canvas
+  canvases[idx]=canvas; ctxs[idx]=null; drawing[idx]=false;
+  lastPts[idx]=null; activeCols[idx]=COLORS[0]; sensitivities[idx]=3;
+  new ResizeObserver(()=>resizeCanvas(idx)).observe(wrap);
+  setupEvents(canvas, idx);
+
+  // AI sketch loader
+  async function loadSketch() {
+    ph.style.display = 'flex';
+    ph.innerHTML = `<div class="spinner"></div><span>Generating…</span>`;
+    newBtn.disabled = true;
+    const old = box.querySelector('.svg-wrap'); if (old) old.remove();
+    try {
+      const r = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          messages: [{ role: 'user', content:
+            `Draw an SVG (viewBox="0 0 400 300") of: ${obj.prompt}
+
+IMPORTANT: Output ONLY the raw SVG — start with <svg, end with </svg>. No markdown, no backticks, no explanation.
+- Elements: <line> <rect> <circle> <ellipse> <path> <polyline> <polygon>
+- Main lines: stroke="#2a1f1a" stroke-width="1.5" fill="none"
+- Construction lines: stroke="#d4c9b5" stroke-width="0.8" fill="none"
+- Object centered, filling ~70% of canvas
+- Clean, recognizable sketch style`
+          }]
+        })
+      });
+      const data = await r.json();
+      const txt = data.content?.find(b => b.type==='text')?.text || '';
+      const m = txt.match(/<svg[\s\S]*?<\/svg>/i);
+      if (m) {
+        ph.style.display = 'none';
+        const div = document.createElement('div'); div.className = 'svg-wrap';
+        div.innerHTML = m[0];
+        const svgEl = div.querySelector('svg');
+        if (svgEl) { svgEl.style.cssText='width:100%;height:100%;'; svgEl.setAttribute('preserveAspectRatio','xMidYMid meet'); }
+        box.insertBefore(div, objLabel);
+      } else {
+        ph.innerHTML = `<span style="color:#c06040;font-size:0.82rem;text-align:center;padding:16px">Couldn't render.<br>Try ↻ New Sketch</span>`;
+      }
+    } catch(e) {
+      ph.innerHTML = `<span style="color:#c06040;font-size:0.82rem;text-align:center;padding:16px">Error. Check connection.</span>`;
+    }
+    newBtn.disabled = false;
+  }
+
+  newBtn.onclick = loadSketch;
+  loadSketch();
+  return card;
+}
+
+/* ── Canvas engine ── */
+function resizeCanvas(idx) {
+  const c = canvases[idx]; if (!c) return;
+  const wrap = c.parentElement, dpr = window.devicePixelRatio||1;
+  const w = wrap.clientWidth, h = wrap.clientHeight; if (!w||!h) return;
+  const tmp = document.createElement('canvas'); tmp.width=c.width; tmp.height=c.height;
+  if (ctxs[idx]) tmp.getContext('2d').drawImage(c,0,0);
+  c.width=w*dpr; c.height=h*dpr; c.style.width=w+'px'; c.style.height=h+'px';
+  const ctx = c.getContext('2d'); ctx.scale(dpr,dpr); ctx.lineCap='round'; ctx.lineJoin='round';
+  ctxs[idx]=ctx; if (tmp.width>0) ctx.drawImage(tmp,0,0,w,h);
+}
+
+function doStroke(idx, from, to) {
+  const ctx = ctxs[idx]; if (!ctx) return;
+  const w = 0.6 + Math.max(0.05, Math.min(1, to.pressure||0.5)) * (sensitivities[idx]*2.5);
+  const ind = document.getElementById(`ind-${idx}`);
+  if (ind) { ind.textContent=w<2?'light':w<5?'medium':'bold'; ind.classList.add('show'); clearTimeout(ind._t); ind._t=setTimeout(()=>ind.classList.remove('show'),800); }
+  ctx.beginPath(); ctx.moveTo(from.x,from.y); ctx.lineTo(to.x,to.y);
+  ctx.lineWidth=w; ctx.strokeStyle=activeCols[idx];
+  ctx.globalAlpha=0.35+Math.min(to.pressure||0.5,1)*0.65;
+  ctx.stroke(); ctx.globalAlpha=1;
+}
+
+function setupEvents(canvas, idx) {
+  canvas.addEventListener('pointerdown', e => {
+    e.preventDefault(); drawing[idx]=true;
+    const r=canvas.getBoundingClientRect();
+    lastPts[idx]={x:e.clientX-r.left,y:e.clientY-r.top,pressure:e.pressure};
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener('pointermove', e => {
+    if (!drawing[idx]||!e.buttons) return;
+    const r=canvas.getBoundingClientRect();
+    const pos={x:e.clientX-r.left,y:e.clientY-r.top,pressure:e.pressure};
+    doStroke(idx,lastPts[idx],pos); lastPts[idx]=pos;
+  });
+  canvas.addEventListener('pointerup', () => { drawing[idx]=false; });
+  canvas.addEventListener('pointercancel', () => { drawing[idx]=false; });
+  canvas.addEventListener('touchstart', e => {
+    e.preventDefault(); drawing[idx]=true;
+    const r=canvas.getBoundingClientRect(),t=e.touches[0];
+    lastPts[idx]={x:t.clientX-r.left,y:t.clientY-r.top,pressure:t.force||0.5};
+  },{passive:false});
+  canvas.addEventListener('touchmove', e => {
+    e.preventDefault(); if (!drawing[idx]) return;
+    const r=canvas.getBoundingClientRect(),t=e.touches[0];
+    const pos={x:t.clientX-r.left,y:t.clientY-r.top,pressure:t.force||0.5};
+    doStroke(idx,lastPts[idx],pos); lastPts[idx]=pos;
+  },{passive:false});
+  canvas.addEventListener('touchend', e => { e.preventDefault(); drawing[idx]=false; },{passive:false});
+}
+
+function eraseCanvas(idx) { const c=canvases[idx],ctx=ctxs[idx]; if(ctx) ctx.clearRect(0,0,c.width,c.height); }
+function eraseAll() { canvases.forEach((_,i) => eraseCanvas(i)); }
+</script>
+</body>
+</html>
