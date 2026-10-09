@@ -1,0 +1,2244 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F4F1EA">
+<title>The Way · 道</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23C8452C'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='white'%3E%E9%81%93%3C/text%3E%3C/svg%3E">
+<style>:root{--ac:#1D7898;--ac2:#E0784E;--ink:#1E2733;--mut:#6B7480;--bg:#F4F1EA;--card:#FFFDF8;--line:#E6E0D4;--bad:#B93A2E;
+--serif:"Noto Serif",Georgia,serif;--sans:system-ui,Roboto,sans-serif;--mono:ui-monospace,"Roboto Mono",monospace;
+--acs:color-mix(in srgb,var(--ac) 12%,#fff);--ac2s:color-mix(in srgb,var(--ac2) 14%,#fff)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{overflow-x:hidden}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);padding-bottom:calc(92px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;font-size:15px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select,textarea{font:inherit;color:var(--ink)}
+.hidden{display:none!important}
+body.lite *,body.lite *::before,body.lite *::after{animation:none!important;transition:none!important}
+
+/* header */
+.hd{position:relative;height:290px;overflow:hidden;background:var(--line)}
+.hd.short{height:190px}
+.hd img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom}
+.hd-top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) 16px 0}
+.stamp{display:flex;align-items:center;gap:10px}
+.stamp b{width:34px;height:34px;border-radius:6px;background:#C8452C;color:#fff;font-family:var(--serif);font-size:21px;font-weight:600;display:grid;place-items:center;transform:rotate(-4deg);box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.stamp span{font-family:var(--serif);font-size:15px;letter-spacing:.4px}
+.hbtn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.55);display:grid;place-items:center}
+.hbtn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8}
+.hd-main{position:relative;padding:10px 20px 0}
+.hd .clk{font-family:var(--serif);font-size:58px;line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.hd .sub{font-size:14px;margin-top:7px;opacity:.85}
+.hd .ttl{font-family:var(--serif);font-size:34px;line-height:1.1;margin-top:4px}
+.hd.dark{color:#fff}
+.hd.dark .clk,.hd.dark .ttl,.hd.dark .sub,.hd.dark .stamp span{text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.hd.dark .hbtn{background:rgba(0,0,0,.22)}
+.pv{display:inline-block;font:600 11px var(--sans);background:var(--ac2);color:#fff;border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:middle;text-shadow:none}
+
+.wrap{padding:0 14px;position:relative;margin-top:-56px;max-width:640px;margin-left:auto;margin-right:auto}
+.card{background:var(--card);border-radius:18px;padding:16px;box-shadow:0 2px 10px rgba(30,39,51,.08);margin-bottom:12px;border:1px solid rgba(0,0,0,.03)}
+.card.tap{cursor:pointer}
+.lbl{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--mut);font-weight:600}
+.h2{font-family:var(--serif);font-size:22px;margin-top:4px;line-height:1.25;overflow-wrap:anywhere}
+.h3{font-family:var(--serif);font-size:18px;line-height:1.3;overflow-wrap:anywhere}
+.row{display:flex;align-items:center;gap:10px;min-width:0}
+.sp{flex:1;min-width:0}
+.mut{color:var(--mut)}
+.sm{font-size:12.5px;color:var(--mut)}
+.bad{color:var(--bad)!important;font-weight:600}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.ell{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.chip{font-size:11px;padding:3px 9px;border-radius:99px;background:var(--acs);color:var(--ac);font-weight:600;white-space:nowrap;max-width:46%;overflow:hidden;text-overflow:ellipsis;flex:none}
+.chip.a2{background:var(--ac2s);color:var(--ac2)}
+.chip.g{background:#EEEAE2;color:var(--mut)}
+.bar{height:6px;border-radius:9px;background:var(--line);overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--ac);border-radius:9px;max-width:100%}
+.bar i.a2{background:var(--ac2)}
+.bar i.over{background:var(--bad)}
+.btn{border:0;border-radius:12px;padding:11px 14px;font:600 14px var(--sans);background:var(--ac);color:#fff;min-height:44px}
+.btn.g{background:transparent;color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 35%,#fff)}
+.btn.d{background:transparent;color:var(--bad);border:1px solid #E8C4BF}
+.btn.full{width:100%}
+.btn:disabled{opacity:.5}
+.btns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.btns .btn{flex:1}
+.link{color:var(--ac);font-weight:600;font-size:13px;padding:6px 0}
+.empty{text-align:center;padding:10px 4px;color:var(--mut);font-size:14px}
+.empty .btn{margin-top:10px}
+
+/* focus goal + route */
+.route{position:relative;height:30px;margin:14px 7px 0}
+.route .ln{position:absolute;left:0;right:0;top:13px;height:2px;background:var(--line)}
+.route .ln i{display:block;height:100%;background:var(--ac)}
+.route .m{position:absolute;top:7px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--card);border:2px solid var(--line)}
+.route .m.on{border-color:var(--ac);background:var(--ac)}
+.route .m.cur{border-color:var(--ac);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 20%,transparent)}
+.rlab{position:relative;height:18px;margin:0 7px;font-size:11px;color:var(--mut)}
+.rlab span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.rlab span.f{transform:translateX(-7px);text-align:left}
+.rlab span.l{transform:translateX(calc(-100% + 7px));text-align:right}
+.rlab span.cur{color:var(--ink);font-weight:600}
+
+/* rings */
+.rings{display:flex;gap:10px;margin-top:10px}
+.rings>button{flex:1;text-align:center;min-width:0;display:flex;flex-direction:column;align-items:center}
+.ring svg{display:block}
+.ring-sub{font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.35}
+
+/* now strip */
+.strip{display:flex;align-items:center;gap:12px}
+.strip .vl{width:3px;align-self:stretch;border-radius:3px;background:var(--ac);flex:none}
+.big{font-family:var(--mono);font-size:20px;color:var(--ac);white-space:nowrap}
+
+/* lists */
+.li{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);min-height:48px}
+.li:last-child{border-bottom:0}
+.li .main{flex:1;min-width:0;cursor:pointer}
+.li .t{font-size:15px;overflow-wrap:anywhere}
+.li.dn .t{color:var(--mut);text-decoration:line-through}
+.ck{width:24px;height:24px;border-radius:7px;border:1.6px solid #B9C0C8;flex:none;position:relative;background:var(--card)}
+.ck.on{background:var(--ac);border-color:var(--ac)}
+.ck.on::after{content:"";position:absolute;left:7.5px;top:3px;width:5px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.ck.round{border-radius:50%}
+.pd{width:8px;height:8px;border-radius:50%;flex:none;background:#C9C3B6}
+.pd.p2{background:var(--ac)}.pd.p3{background:var(--ac2)}
+.sec{margin:6px 0 2px;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--mut);font-weight:600}
+.sec.bad{color:var(--bad)}
+.gl{padding:10px 0;cursor:pointer}
+.gl+.gl{border-top:1px solid var(--line)}
+.star{color:var(--ac2);font-size:14px}
+.seg{display:flex;background:#EEEAE2;border-radius:12px;padding:3px;gap:3px}
+.seg button{flex:1;padding:8px 4px;border-radius:9px;font-size:13px;font-weight:600;color:var(--mut);min-height:36px}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.dots{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
+.dots i{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--line)}
+.dots i.on{background:var(--ac);border-color:var(--ac)}
+.dots i.na{border-style:dashed;opacity:.5}
+.dots i.today{outline:2px solid color-mix(in srgb,var(--ac) 30%,transparent);outline-offset:1px}
+.mnav{display:flex;align-items:center;justify-content:space-between}
+.mnav button{width:44px;height:44px;border-radius:50%;font-size:22px;color:var(--ac)}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:6px 0;font-size:14px}
+.kv b{font-weight:600}
+.xrow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;min-height:48px}
+.xrow:last-child{border-bottom:0}
+.amt{font-family:var(--mono);white-space:nowrap}
+
+/* banners */
+.banner{background:#FFF4E0;border:1px solid #F0D7A8;color:#6B4B12;border-radius:14px;padding:12px 14px;margin-bottom:12px;font-size:13.5px;display:flex;align-items:center;gap:10px}
+.banner .btn{min-height:36px;padding:7px 12px;font-size:13px;flex:none}
+.banner.info{background:var(--acs);border-color:color-mix(in srgb,var(--ac) 25%,#fff);color:var(--ink)}
+
+/* tabs */
+.tabs{position:fixed;left:0;right:0;bottom:0;height:calc(68px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:var(--card);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-around;z-index:20}
+.tab{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;color:var(--mut);flex:1;min-width:0;padding:6px 0}
+.tab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tab.on{color:var(--ac);font-weight:600}
+.fabw{flex:1;display:flex;justify-content:center}
+.fab{width:58px;height:58px;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;margin-top:-30px;box-shadow:0 4px 12px rgba(0,0,0,.18);border:4px solid var(--bg)}
+.fab svg{width:26px;height:26px;stroke:#fff;stroke-width:2.4;fill:none;stroke-linecap:round}
+
+/* sheets */
+.sw{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;justify-content:flex-end}
+.scrim{position:absolute;inset:0;background:rgba(20,26,34,.42);animation:fade .2s ease}
+.sheet{position:relative;background:var(--bg);border-radius:22px 22px 0 0;max-height:92vh;display:flex;flex-direction:column;animation:up .22s ease;padding-bottom:env(safe-area-inset-bottom);max-width:640px;width:100%;margin:0 auto}
+.grab{width:40px;height:4px;border-radius:4px;background:#CFC8BA;margin:8px auto 0}
+.sh-head{display:flex;align-items:center;gap:10px;padding:10px 16px 8px}
+.sh-head h3{flex:1;font-family:var(--serif);font-size:20px;font-weight:500;min-width:0;overflow-wrap:anywhere}
+.x{width:40px;height:40px;border-radius:50%;background:#EEEAE2;font-size:18px;color:var(--mut);flex:none}
+.sh-body{overflow-y:auto;padding:4px 16px 20px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+@keyframes up{from{transform:translateY(100%)}to{transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* forms */
+.fld{margin-top:12px}
+.fld>label{display:block;font-size:12px;font-weight:600;color:var(--mut);margin-bottom:5px;letter-spacing:.3px}
+.in{width:100%;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:11px 12px;font-size:16px;min-height:46px;outline:none}
+.in:focus{border-color:var(--ac)}
+textarea.in{min-height:84px;resize:vertical;line-height:1.4}
+.two{display:flex;gap:10px}.two>*{flex:1;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{padding:8px 12px;border-radius:99px;background:#EEEAE2;font-size:13px;font-weight:600;color:var(--mut);min-height:36px}
+.chips button.on{background:var(--ac);color:#fff}
+.tog{display:flex;align-items:center;gap:12px;padding:10px 0;cursor:pointer}
+.tog .sw2{width:44px;height:26px;border-radius:99px;background:#D6D0C4;position:relative;flex:none;transition:background .15s}
+.tog .sw2::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .15s}
+.tog.on .sw2{background:var(--ac)}
+.tog.on .sw2::after{transform:translateX(18px)}
+.hint{font-size:12px;color:var(--mut);margin-top:5px}
+.err{color:var(--bad);font-size:13px;margin-top:8px;min-height:0}
+.group{background:var(--card);border-radius:16px;padding:4px 14px 12px;margin-top:12px;border:1px solid rgba(0,0,0,.04)}
+.group>.lbl{padding-top:12px}
+.srow{display:flex;align-items:center;gap:8px;margin-top:8px}
+.srow .in{min-height:42px;padding:8px 10px}
+.mini{width:42px;height:42px;border-radius:10px;background:#EEEAE2;color:var(--mut);flex:none;font-size:16px}
+pre.diag{white-space:pre-wrap;word-break:break-word;font:12px var(--mono);background:#EEEAE2;border-radius:10px;padding:10px;max-height:200px;overflow:auto;margin-top:8px}
+
+/* toast */
+#toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;z-index:90;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90vw;text-align:center}
+#toast.show{opacity:1}
+
+/* sync status dot */
+.sdot{width:12px;height:12px;border-radius:50%;flex:none;border:2px solid rgba(255,255,255,.85);box-shadow:0 0 0 1px rgba(0,0,0,.12);padding:0;margin-left:2px}
+.sdot.s-ok{background:#3E9C5A}
+.sdot.s-busy{background:var(--ac2)}
+.sdot.s-off{background:#B9C0C8}
+.sdot.s-offline{background:#9AA3AD}
+.sdot.s-pin,.sdot.s-locked,.sdot.s-setup,.sdot.s-error,.sdot.s-server,.sdot.s-foreign,.sdot.s-bad,.sdot.s-noserver{background:var(--bad)}
+.stamp .sdot{position:relative}
+.stamp .sdot::before{content:"";position:absolute;inset:-14px}
+
+/* ===== watch view (round screen, sized in vmin so any watch size works) ===== */
+#watch{display:none}
+body.watch{background:#0E131B;padding:0;min-height:0;overflow:hidden;font-size:5.6vmin;color:#EEF2F5}
+body.watch .hd,body.watch .wrap,body.watch .tabs{display:none!important}
+body.watch #watch{display:block;position:fixed;inset:0;--wbg:#0E131B;--wcard:#1A222D;--wline:#2A3440;--wmut:#93A0AD;--wink:#EEF2F5}
+body.watch #toast{bottom:16vmin;font-size:4.6vmin;padding:2.4vmin 4vmin;max-width:72vmin;border-radius:5vmin;background:#EEF2F5;color:#0E131B}
+.wv{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:none}
+.wv::-webkit-scrollbar{display:none}
+.wc{min-height:100%;display:flex;flex-direction:column;align-items:center;padding:17vmin 9vmin 28vmin}
+.wc.mid{justify-content:center;padding:0 10vmin}
+.wlab{font-size:3.9vmin;letter-spacing:.35vmin;text-transform:uppercase;color:var(--wmut);font-weight:600;text-align:center}
+.wbig{font-family:var(--serif);font-size:7.4vmin;line-height:1.15;text-align:center;max-width:66vmin;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
+.wsub{font-size:4.4vmin;color:var(--wmut);text-align:center;margin-top:1vmin}
+.wtop{position:absolute;top:5.5vmin;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:1.6vmin;font:600 4.4vmin var(--mono);color:var(--wmut);padding:1.5vmin 3vmin;border-radius:5vmin;z-index:2}
+.wtop .sdot{width:2.6vmin;height:2.6vmin;border-width:0;box-shadow:none;margin:0}
+.wring{position:absolute;inset:0;pointer-events:none}
+.wbtns{display:flex;gap:3.4vmin;margin-top:4.6vmin}
+.wrb{width:16.5vmin;height:16.5vmin;border-radius:50%;background:var(--wcard);display:grid;place-items:center;color:var(--wink);font:700 6vmin var(--sans)}
+.wrb svg{width:7.6vmin;height:7.6vmin;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.wrb.hot{background:var(--wac2);color:#0E131B}
+.wrb.hot svg{stroke-width:2.6}
+.wbtn{background:var(--wac);color:#0E131B;border-radius:7vmin;font:700 5.2vmin var(--sans);min-height:12.5vmin;padding:0 6vmin;display:flex;align-items:center;justify-content:center;margin-top:4vmin}
+.wbtn.g{background:var(--wcard);color:var(--wink);border:1px solid var(--wline)}
+.wbtn.a2{background:var(--wac2)}
+.wbtn.d{background:transparent;color:#F28B7D;border:1px solid #5A2F2B}
+.wbtn:disabled{opacity:.45}
+.whead{font-size:4.1vmin;letter-spacing:.3vmin;text-transform:uppercase;color:var(--wmut);font-weight:600;padding:2vmin 4vmin;min-height:10vmin;display:flex;align-items:center;gap:1.4vmin}
+.whead b{font-size:6vmin;line-height:1;font-weight:400;margin-top:-.6vmin}
+.wrow{width:80vmin;min-height:15vmin;background:var(--wcard);border-radius:5vmin;display:flex;align-items:center;gap:3vmin;padding:2vmin 4vmin;margin-top:2.4vmin;text-align:left;color:var(--wink);font-size:5.4vmin;line-height:1.2}
+.wrow .t{flex:1;min-width:0;overflow-wrap:anywhere}
+.wrow .s{display:block;font-size:3.8vmin;color:var(--wmut);margin-top:.4vmin}
+.wrow.dn .t{color:var(--wmut);text-decoration:line-through}
+.wck{width:7.4vmin;height:7.4vmin;border-radius:50%;border:.7vmin solid #4A5562;flex:none;position:relative}
+.wck.sq{border-radius:2vmin}
+.wck.on{background:var(--wac);border-color:var(--wac)}
+.wck.on::after{content:"";position:absolute;left:1.9vmin;top:.6vmin;width:1.6vmin;height:3.4vmin;border:solid #0E131B;border-width:0 .7vmin .7vmin 0;transform:rotate(45deg)}
+.wsec{margin-top:4.4vmin;font-size:3.7vmin;letter-spacing:.3vmin;text-transform:uppercase;color:var(--wmut);font-weight:600}
+.wsec.bad{color:#F28B7D}
+.wempty{color:var(--wmut);font-size:4.8vmin;text-align:center;margin-top:5vmin;max-width:70vmin}
+.wamt{font:600 9vmin var(--mono);margin:0 0 2.4vmin;white-space:nowrap}
+.wamt i{font-style:normal;color:var(--wmut);font-size:6vmin}
+.wpad{display:grid;grid-template-columns:repeat(4,15vmin);gap:2vmin}
+.wpad button{height:12vmin;border-radius:4vmin;background:var(--wcard);color:var(--wink);font:600 6vmin var(--mono)}
+.wpad button.sm{font-size:4.4vmin}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:2.4vmin;width:78vmin;margin-top:3vmin}
+.wgrid button{min-height:14vmin;border-radius:5vmin;background:var(--wcard);color:var(--wink);font:600 4.8vmin var(--sans);padding:1vmin 2vmin;overflow-wrap:anywhere}
+.wkv{display:flex;justify-content:space-between;width:70vmin;font-size:4.8vmin;padding:1.2vmin 0;border-bottom:1px solid var(--wline)}
+.wkv:last-child{border-bottom:0}
+.wkv b{font-family:var(--mono);font-weight:600}
+.wbad{color:#F28B7D!important}
+.wdots{display:flex;gap:3vmin;margin:1vmin 0 3vmin}
+.wdots i{width:4.4vmin;height:4.4vmin;border-radius:50%;border:.6vmin solid #4A5562}
+.wdots i.on{background:var(--wac);border-color:var(--wac)}
+.wnote{font-size:4.2vmin;color:var(--wmut);text-align:center;max-width:72vmin;margin-top:2vmin;line-height:1.35}
+.wpad button[data-v=del]{font:600 6.4vmin var(--sans)}
+</style></head><body>
+<noscript>This tool needs JavaScript turned on.</noscript>
+<script>'use strict';
+/* ===== data.js — defaults, sanitizers, storage ===== */
+const APP_ID = 'the-way', APP_V = 1;
+const LS_KEY = 'way.v1', LS_VIS = 'way.vis', LS_DIAG = 'way.diag';
+const THEME_NAMES = ['earth', 'forest', 'sea', 'wind'];
+
+const DEF_AREAS = [{ id: 'a1', name: 'Work & career' }, { id: 'a2', name: 'Finance & learning' }];
+const DEF_CATS = [['c1', 'Food'], ['c2', 'Transport'], ['c3', 'Bills'], ['c4', 'Learning'], ['c5', 'Home'], ['c6', 'Health'], ['c7', 'Fun'], ['c8', 'Other']]
+  .map(([id, name]) => ({ id, name, limit: 0 }));
+const DEF_RATES = { USD: 25400, EUR: 27600, JPY: 170 };
+
+function defaults() {
+  return {
+    goals: [], systems: [], tasks: [], expenses: [],
+    areas: DEF_AREAS.map(a => ({ ...a })),
+    cats: DEF_CATS.map(c => ({ ...c })),
+    del: {},
+    settings: { theme: 'random', lite: false, watch: 'auto', budget: 10000000, rates: { ...DEF_RATES }, u: 0 },
+    meta: { created: Date.now(), welcomed: false, exNote: false, changes: 0, lastBackup: 0, focus: '', manual: null, manU: 0, preview: 0 }
+  };
+}
+
+/* ---------- sanitizers ---------- */
+const isObj = v => !!v && typeof v === 'object' && !Array.isArray(v);
+function sStr(v, max = 200) {
+  if (typeof v === 'number' && Number.isFinite(v)) v = String(v);
+  if (typeof v !== 'string') return '';
+  return v.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').slice(0, max);
+}
+function sNum(v, min, max, def = 0) {
+  const n = typeof v === 'number' ? v : (typeof v === 'string' && v.trim() !== '' ? Number(v) : NaN);
+  return Number.isFinite(n) ? Math.min(max, Math.max(min, n)) : def;
+}
+const sId = v => { const s = sStr(v, 40); return /^[A-Za-z0-9_-]{1,40}$/.test(s) ? s : ''; };
+function sDate(v) {
+  if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return '';
+  const [y, m, d] = v.split('-').map(Number);
+  if (y < 1970 || y > 2200 || m < 1 || m > 12 || d < 1 || d > 31) return '';
+  const dt = new Date(y, m - 1, d);
+  return dt.getMonth() === m - 1 ? v : '';
+}
+const sTime = v => (typeof v === 'string' && /^([01]\d|2[0-3]):[0-5]\d$/.test(v)) ? v : '';
+const sBool = v => v === true || v === 1 || v === 'true';
+const sTs = v => sNum(v, 0, 8.64e15, 0);
+function sArr(v, fn, max = 20000) {
+  if (!Array.isArray(v)) return [];
+  const out = [], seen = new Set();
+  for (const x of v.slice(0, max)) {
+    if (!isObj(x)) continue;
+    let y = null;
+    try { y = fn(x); } catch (e) { y = null; }
+    if (y && y.id && !seen.has(y.id)) { seen.add(y.id); out.push(y); }
+  }
+  return out;
+}
+
+function sGoal(x) {
+  const title = sStr(x.title, 120).trim(); if (!title) return null;
+  const ms = sArr(x.ms, m => { const t = sStr(m.t, 80).trim(); return t ? { id: sId(m.id), t, done: sBool(m.done) } : null; }, 50);
+  return {
+    id: sId(x.id), title, area: sId(x.area), why: sStr(x.why, 300), deadline: sDate(x.deadline),
+    kind: x.kind === 'num' ? 'num' : 'ms', ms,
+    cur: sNum(x.cur, -1e15, 1e15, 0), target: sNum(x.target, 0, 1e15, 0), unit: sStr(x.unit, 16),
+    budget: Math.round(sNum(x.budget, 0, 1e13, 0)), star: sBool(x.star), arch: sBool(x.arch),
+    created: sTs(x.created), updated: sTs(x.updated), u: sTs(x.u)
+  };
+}
+function sLog(v) {
+  const out = {}; if (!isObj(v)) return out;
+  const keys = Object.keys(v).filter(k => sDate(k)).sort().slice(-500);
+  for (const k of keys) {
+    const e = v[k]; if (!isObj(e)) continue;
+    const s = Array.isArray(e.s) ? [...new Set(e.s.map(sId).filter(Boolean))].slice(0, 30) : [];
+    const d = sBool(e.d) ? 1 : 0, u = sTs(e.u);
+    if (d || s.length || u) out[k] = u ? { d, s, u } : { d, s };
+  }
+  return out;
+}
+function sSystem(x) {
+  const title = sStr(x.title, 120).trim(); if (!title) return null;
+  let days = Array.isArray(x.days) ? [...new Set(x.days.map(n => sNum(n, -1, 7, -1)).filter(n => Number.isInteger(n) && n >= 0 && n <= 6))].sort() : [];
+  if (!days.length) days = [0, 1, 2, 3, 4, 5, 6];
+  return {
+    id: sId(x.id), title, area: sId(x.area), goal: sId(x.goal), time: sTime(x.time),
+    dur: Math.round(sNum(x.dur, 5, 720, 30)), days,
+    steps: sArr(x.steps, s => { const t = sStr(s.t, 100).trim(); return t ? { id: sId(s.id), t } : null; }, 30),
+    paused: sBool(x.paused), log: sLog(x.log), created: sTs(x.created), u: sTs(x.u)
+  };
+}
+function sTask(x) {
+  const title = sStr(x.title, 160).trim(); if (!title) return null;
+  const done = sBool(x.done);
+  return {
+    id: sId(x.id), title, due: sDate(x.due), prio: Math.round(sNum(x.prio, 1, 3, 2)),
+    area: sId(x.area), goal: sId(x.goal), note: sStr(x.note, 500), done,
+    doneAt: done ? sDate(x.doneAt) : '', created: sTs(x.created), u: sTs(x.u)
+  };
+}
+function sExpense(x) {
+  const date = sDate(x.date); const amt = Math.round(sNum(x.amt, 0, 1e13, 0));
+  if (!date || !(amt > 0)) return null;
+  const oc = (typeof x.oc === 'string' && /^[A-Z]{3}$/.test(x.oc)) ? x.oc : 'VND';
+  return {
+    id: sId(x.id), date, amt, oa: sNum(x.oa, 0, 1e13, amt), oc,
+    cat: sId(x.cat), goal: sId(x.goal), note: sStr(x.note, 200), out: sBool(x.out), created: sTs(x.created), u: sTs(x.u)
+  };
+}
+function sRates(v) {
+  const out = {}; if (!isObj(v)) return { ...DEF_RATES };
+  for (const k of Object.keys(v).slice(0, 20)) {
+    if (!/^[A-Z]{3}$/.test(k) || k === 'VND') continue;
+    const n = sNum(v[k], 0, 1e9, 0); if (n > 0) out[k] = n;
+  }
+  return out;
+}
+/* deleted ids with the time they were deleted, so a delete reaches every device; kept for 400 days */
+function sDel(v) {
+  const out = {}; if (!isObj(v)) return out;
+  const cut = Date.now() - 400 * 864e5;
+  const ent = Object.entries(v).filter(([k, t]) => sId(k) === k && typeof t === 'number' && t > cut && t < 8.64e15);
+  ent.sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+  for (const [k, t] of ent.slice(0, 30000)) out[k] = t;
+  return out;
+}
+function sanitizeState(raw) {
+  const d = defaults();
+  if (!isObj(raw)) return d;
+  const st = isObj(raw.settings) ? raw.settings : {}, mt = isObj(raw.meta) ? raw.meta : {};
+  const areas = sArr(raw.areas, a => { const n = sStr(a.name, 40).trim(); return n ? { id: sId(a.id), name: n, u: sTs(a.u) } : null; }, 30);
+  const cats = sArr(raw.cats, c => { const n = sStr(c.name, 40).trim(); return n ? { id: sId(c.id), name: n, limit: Math.round(sNum(c.limit, 0, 1e13, 0)), u: sTs(c.u) } : null; }, 40);
+  let manual = null;
+  if (isObj(mt.manual) && sDate(mt.manual.date)) manual = { date: mt.manual.date, idx: Math.round(sNum(mt.manual.idx, 0, 200, 0)) };
+  return {
+    goals: sArr(raw.goals, sGoal, 500),
+    systems: sArr(raw.systems, sSystem, 200),
+    tasks: sArr(raw.tasks, sTask, 10000),
+    expenses: sArr(raw.expenses, sExpense, 50000),
+    areas: areas.length ? areas : d.areas,
+    cats: cats.length ? cats : d.cats,
+    del: sDel(raw.del),
+    settings: {
+      theme: ['random', ...THEME_NAMES].includes(st.theme) ? st.theme : 'random',
+      lite: sBool(st.lite),
+      watch: ['auto', 'on', 'off'].includes(st.watch) ? st.watch : 'auto',
+      budget: Math.round(sNum(st.budget, 0, 1e13, d.settings.budget)),
+      rates: 'rates' in st ? sRates(st.rates) : { ...DEF_RATES },
+      u: sTs(st.u)
+    },
+    meta: {
+      created: sTs(mt.created) || Date.now(), welcomed: sBool(mt.welcomed), exNote: sBool(mt.exNote),
+      changes: Math.round(sNum(mt.changes, 0, 1e9, 0)), lastBackup: sTs(mt.lastBackup),
+      focus: sId(mt.focus), manual, manU: sTs(mt.manU), preview: sNum(mt.preview, -3.2e11, 3.2e11, 0)
+    }
+  };
+}
+
+/* ---------- storage ---------- */
+let storageOK = true;
+function lsGet(k) { try { return window.localStorage.getItem(k); } catch (e) { storageOK = false; return null; } }
+function lsSet(k, v) { try { window.localStorage.setItem(k, v); return true; } catch (e) { storageOK = false; return false; } }
+function lsDel(k) { try { window.localStorage.removeItem(k); } catch (e) { /* ignore */ } }
+function storageProbe() {
+  try { localStorage.setItem('way.probe', '1'); localStorage.removeItem('way.probe'); storageOK = true; }
+  catch (e) { storageOK = false; }
+}
+function loadState() {
+  const raw = lsGet(LS_KEY);
+  if (!raw) return defaults();
+  try { return sanitizeState(JSON.parse(raw)); }
+  catch (e) {
+    lsSet(LS_KEY + '.corrupt', raw.slice(0, 2e6));
+    logDiag('Saved data could not be read; a copy was kept as way.v1.corrupt (' + e.message + ')');
+    return defaults();
+  }
+}
+
+/* ---------- diagnostics ---------- */
+function getDiag() { try { const a = JSON.parse(lsGet(LS_DIAG) || '[]'); return Array.isArray(a) ? a.slice(-40) : []; } catch (e) { return []; } }
+const memDiag = [];
+function logDiag(msg) {
+  const e = { t: Date.now(), m: sStr(String(msg), 300) };
+  memDiag.push(e);
+  const a = getDiag(); a.push(e); lsSet(LS_DIAG, JSON.stringify(a.slice(-40)));
+}
+
+/* ---------- ids ---------- */
+let idCounter = 0;
+function uid(p) { idCounter = (idCounter + 1) % 1296; return p + Date.now().toString(36) + idCounter.toString(36) + Math.random().toString(36).slice(2, 5); }
+
+/* ---------- example data (ids prefixed ex- so loading twice never duplicates) ---------- */
+function exampleData(todayKey, addDays) {
+  const t = Date.now(), past = t - 21 * 864e5;
+  const d = n => addDays(todayKey, n);
+  const dow = k => { const [y, m, dd] = k.split('-').map(Number); return new Date(y, m - 1, dd).getDay(); };
+  // a few weeks of believable history so streaks and the 14-day dots have something to show
+  const hist = (days, skip = []) => { const log = {}; for (let i = 1; i <= 14; i++) { const k = d(-i); if (days.includes(dow(k)) && !skip.includes(i)) log[k] = { d: 1, s: [] }; } return log; };
+  const all = [0, 1, 2, 3, 4, 5, 6], wk = [1, 2, 3, 4, 5];
+  const out = {
+    goals: [
+      { id: 'ex-g1', title: 'Senior PM by Q2 2027', area: 'a1', why: 'Lead my own product and grow my income', deadline: '2027-06-30', kind: 'ms',
+        ms: [{ id: 'ex-m1', t: 'PM course', done: true }, { id: 'ex-m2', t: 'Lead launch', done: false }, { id: 'ex-m3', t: 'Mentor', done: false }, { id: 'ex-m4', t: 'Promotion', done: false }],
+        star: true, created: t, updated: t },
+      { id: 'ex-g2', title: 'Emergency fund', area: 'a2', why: 'Six months of calm, whatever happens', deadline: '2027-12-31', kind: 'num',
+        cur: 33000000, target: 60000000, unit: '₫', star: true, created: t, updated: t },
+      { id: 'ex-g3', title: 'Data analytics course', area: 'a2', why: 'Make better decisions with numbers', deadline: '2027-03-31', kind: 'num',
+        cur: 3, target: 12, unit: 'modules', budget: 5000000, created: t, updated: t }
+    ],
+    systems: [
+      { id: 'ex-s1', title: 'Morning review', area: 'a1', goal: '', time: '06:30', dur: 15, days: [0, 1, 2, 3, 4, 5, 6],
+        steps: [{ id: 'ex-st1', t: 'Look at today' }, { id: 'ex-st2', t: 'Pick one priority' }], created: t },
+      { id: 'ex-s2', title: 'Deep work block', area: 'a1', goal: 'ex-g1', time: '09:00', dur: 120, days: [1, 2, 3, 4, 5],
+        steps: [{ id: 'ex-st3', t: 'Phone on silent' }, { id: 'ex-st4', t: 'One task only' }], created: t },
+      { id: 'ex-s3', title: 'Walk & lunch', area: 'a1', goal: '', time: '11:30', dur: 60, days: [1, 2, 3, 4, 5], steps: [], created: t },
+      { id: 'ex-s4', title: 'Learning hour', area: 'a2', goal: 'ex-g3', time: '20:00', dur: 60, days: [1, 2, 3, 4], steps: [{ id: 'ex-st5', t: 'One lesson' }, { id: 'ex-st6', t: 'Write 3 notes' }], created: t },
+      { id: 'ex-s5', title: 'Weekly review', area: 'a1', goal: 'ex-g1', time: '17:00', dur: 45, days: [0], steps: [{ id: 'ex-st7', t: 'Review goals' }, { id: 'ex-st8', t: 'Plan next week' }], created: t },
+      { id: 'ex-s6', title: 'Read 20 pages', area: 'a2', goal: '', time: '', dur: 30, days: [0, 1, 2, 3, 4, 5, 6], steps: [], created: t },
+      { id: 'ex-s7', title: 'Log spending', area: 'a2', goal: 'ex-g2', time: '', dur: 5, days: [0, 1, 2, 3, 4, 5, 6], steps: [], created: t }
+    ],
+    tasks: [
+      { id: 'ex-t1', title: 'Submit Q4 OKR draft', due: d(-1), prio: 3, area: 'a1', goal: 'ex-g1', created: t },
+      { id: 'ex-t2', title: 'Transfer 5M ₫ to savings', due: d(0), prio: 2, area: 'a2', goal: 'ex-g2', created: t },
+      { id: 'ex-t3', title: 'Course module 4 quiz', due: d(2), prio: 2, area: 'a2', goal: 'ex-g3', created: t },
+      { id: 'ex-t4', title: 'Book 1:1 with mentor', due: '', prio: 1, area: 'a1', goal: 'ex-g1', created: t },
+      { id: 'ex-t5', title: 'Update CV with launch results', due: d(-1), prio: 2, area: 'a1', goal: 'ex-g1', done: true, doneAt: d(-1), created: past },
+      { id: 'ex-t6', title: 'Compare savings account rates', due: d(0), prio: 1, area: 'a2', goal: 'ex-g2', done: true, doneAt: d(0), created: past }
+    ],
+    expenses: [
+      { id: 'ex-e1', date: d(0), amt: 65000, oa: 65000, oc: 'VND', cat: 'c1', note: 'Phở', created: t },
+      { id: 'ex-e2', date: d(-1), amt: 1200000, oa: 1200000, oc: 'VND', cat: 'c4', goal: 'ex-g3', note: 'Course module', created: t },
+      { id: 'ex-e3', date: d(-2), amt: 254000, oa: 10, oc: 'USD', cat: 'c7', note: 'App subscription', created: t },
+      { id: 'ex-e4', date: d(-2), amt: 850000, oa: 850000, oc: 'VND', cat: 'c5', note: 'New lamp', out: true, created: t },
+      { id: 'ex-e5', date: d(-1), amt: 45000, oa: 45000, oc: 'VND', cat: 'c2', note: 'Grab to office', created: t },
+      { id: 'ex-e6', date: d(-3), amt: 420000, oa: 420000, oc: 'VND', cat: 'c1', note: 'Groceries', created: t },
+      { id: 'ex-e7', date: d(-4), amt: 55000, oa: 55000, oc: 'VND', cat: 'c1', note: 'Coffee', created: t },
+      { id: 'ex-e8', date: d(-5), amt: 780000, oa: 780000, oc: 'VND', cat: 'c3', note: 'Electricity bill', created: t }
+    ]
+  };
+  const logs = { 'ex-s1': hist(all), 'ex-s2': hist(wk, [6]), 'ex-s3': hist(wk, [2, 9]), 'ex-s4': hist([1, 2, 3, 4], [3]), 'ex-s5': hist([0]), 'ex-s6': hist(all, [4, 5]), 'ex-s7': hist(all, [8]) };
+  for (const s of out.systems) { s.log = logs[s.id] || {}; s.created = past; }
+  return out;
+}
+'use strict';
+/* ===== scene.js — misty hills header, drawn once per theme + phase ===== */
+const THEMES = {
+  earth:  { sky: ['#EBC9A0', '#F7E9D4'], r: ['#E2B88E', '#CF946A', '#B0704C', '#7E4A33'], sun: '#C8452C', ac: '#B0532A', ac2: '#C99230' },
+  forest: { sky: ['#C9DFCB', '#EFF4E7'], r: ['#AECBA8', '#84AC82', '#5C8C61', '#3B6948'], sun: '#FFFDF4', ac: '#3B7A4D', ac2: '#C6613A' },
+  sea:    { sky: ['#B8DCE8', '#EDF6F4'], r: ['#A3CEDC', '#74B2C8', '#4690B0', '#256A8C'], sun: '#FFFFFF', ac: '#1D7898', ac2: '#E0784E' },
+  wind:   { sky: ['#CFDBF0', '#F4F2F8'], r: ['#C3CEE6', '#A6B4D7', '#8894C2', '#6772A6'], sun: '#FFFFFF', ac: '#4569B3', ac2: '#D9A32E' }
+};
+const PHASES = {
+  dawn:  { sky: ['#EDB9AC', '#FAE3CF'], tint: '#F2B3A0', k: 0.22, dark: false },
+  day:   null,
+  dusk:  { sky: ['#D98A7E', '#F4C9A6'], tint: '#6A3E62', k: 0.42, dark: true },
+  night: { sky: ['#16203D', '#34406A'], tint: '#111933', k: 0.66, dark: true }
+};
+function phaseOf(h) {
+  if (h >= 5 && h < 8) return 'dawn';
+  if (h >= 8 && h < 16) return 'day';
+  if (h >= 16 && h < 19) return 'dusk';
+  return 'night';
+}
+function rng(a) {
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+function hex2rgb(h) { const n = parseInt(h.slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
+function mix(a, b, k) {
+  const A = hex2rgb(a), B = hex2rgb(b);
+  return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * k).toString(16).padStart(2, '0')).join('');
+}
+function ridge(yBase, amp, seed, freq, W = 800, H = 440) {
+  const r = rng(seed), p = [r() * 6, r() * 6];
+  let d = `M0 ${H} L`;
+  for (let x = 0; x <= W; x += 5) {
+    const y = yBase - amp * (0.7 * Math.sin(x * freq + p[0]) + 0.3 * Math.sin(x * freq * 2.1 + p[1]));
+    d += `${x} ${y.toFixed(1)} L`;
+  }
+  return d + `${W} ${H}Z`;
+}
+const sceneCache = {};
+function sceneURL(theme, phase) {
+  const key = theme + '|' + phase;
+  if (sceneCache[key]) return sceneCache[key];
+  const t = THEMES[theme] || THEMES.sea, P = PHASES[phase];
+  const sky = P ? P.sky : t.sky;
+  const ridges = t.r.map(c => P ? mix(c, P.tint, P.k) : c);
+  const R = [[246, 26, .0085], [286, 22, .011], [326, 18, .014], [366, 14, .018]];
+  const night = phase === 'night';
+  let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" preserveAspectRatio="xMidYMax slice">` +
+    `<defs><linearGradient id="k" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sky[0]}"/><stop offset="1" stop-color="${sky[1]}"/></linearGradient>` +
+    `<linearGradient id="m" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="${night ? .12 : .35}"/></linearGradient></defs>` +
+    `<rect width="800" height="440" fill="url(#k)"/>`;
+  if (night) {
+    const r = rng(7);
+    for (let i = 0; i < 34; i++) {
+      const x = (r() * 800).toFixed(0), y = (r() * 200 + 10).toFixed(0), rad = (r() * 1.1 + .5).toFixed(1), o = (r() * .5 + .35).toFixed(2);
+      s += `<circle cx="${x}" cy="${y}" r="${rad}" fill="#fff" opacity="${o}"/>`;
+    }
+    s += `<circle cx="612" cy="122" r="26" fill="#F4EBD0"/><circle cx="624" cy="114" r="23" fill="${sky[0]}"/>`;
+  } else {
+    let sun = t.sun, cy = 150, cx = 610, op = .95;
+    if (phase === 'dawn') { cy = 205; cx = 640; sun = theme === 'earth' ? t.sun : '#FFF3E2'; }
+    if (phase === 'dusk') { cy = 214; cx = 590; sun = theme === 'earth' ? t.sun : '#FBE3C4'; op = .9; }
+    s += `<circle cx="${cx}" cy="${cy}" r="34" fill="${sun}" opacity="${op}"/>`;
+    if (phase !== 'dusk') {
+      const bc = ridges[3];
+      s += `<path d="M520 120 q6-5 12 0 q6-5 12 0 M560 100 q5-4 10 0 q5-4 10 0 M495 140 q4-3 8 0 q4-3 8 0" stroke="${bc}" stroke-width="1.6" fill="none" opacity=".5"/>`;
+    }
+  }
+  R.forEach((q, i) => {
+    s += `<path d="${ridge(q[0], q[1], 11 + i * 7, q[2])}" fill="${ridges[i]}"/>`;
+    if (i < 3) s += `<rect x="0" y="${q[0] + 4}" width="800" height="40" fill="url(#m)"/>`;
+  });
+  s += '</svg>';
+  sceneCache[key] = 'data:image/svg+xml,' + encodeURIComponent(s);
+  return sceneCache[key];
+}
+'use strict';
+/* ===== sync.js — change stamps, merging and cloud sync =====
+   Every item carries u (last change time). Deleted ids go into S.del with the delete time.
+   System check-offs carry their own u per day, so ticking on the watch never clashes with
+   editing the system on the phone. Theme, Lite mode, watch view, preview and backup info
+   stay on each device and are never sent. */
+const LS_SYNC = 'way.sync';
+const SYNC_COLS = ['goals', 'systems', 'tasks', 'expenses', 'areas', 'cats'];
+
+/* ---------- canonical helpers ---------- */
+function canon(v) {
+  if (Array.isArray(v)) return '[' + v.map(canon).join(',') + ']';
+  if (v && typeof v === 'object') return '{' + Object.keys(v).sort().map(k => JSON.stringify(k) + ':' + canon(v[k])).join(',') + '}';
+  return JSON.stringify(v === undefined ? null : v);
+}
+function hashStr(s) {
+  let h = 0x811c9dc5, h2 = 0;
+  for (let i = 0; i < s.length; i++) { const c = s.charCodeAt(i); h ^= c; h = Math.imul(h, 0x01000193); h2 = (h2 * 31 + c) | 0; }
+  return (h >>> 0).toString(36) + '.' + (h2 >>> 0).toString(36) + '.' + s.length.toString(36);
+}
+function itemKey(col, x) {
+  const c = {}; for (const k in x) if (k !== 'u' && !(col === 'systems' && k === 'log')) c[k] = x[k];
+  return JSON.stringify(c);
+}
+const logKey = e => (e.d ? 1 : 0) + '|' + (e.s || []).join(',');
+const manKey = m => m ? m.date + '|' + m.idx : '';
+const setKey = st => st.budget + '|' + JSON.stringify(st.rates);
+
+/* ---------- change stamps ---------- */
+let SNAP = null;
+function takeSnap() {
+  const cols = {};
+  for (const col of SYNC_COLS) {
+    const m = new Map();
+    for (const x of S[col]) {
+      const o = { k: itemKey(col, x), u: x.u || 0 };
+      if (col === 'systems') { o.log = {}; for (const d in x.log) o.log[d] = { k: logKey(x.log[d]), u: x.log[d].u || 0 }; }
+      m.set(x.id, o);
+    }
+    cols[col] = m;
+  }
+  SNAP = { cols, set: setKey(S.settings), man: manKey(S.meta.manual) };
+}
+/* Compares S with the last snapshot: changed items get u = now, removed items become delete markers.
+   Returns true if anything that syncs has changed. */
+function stampChanges() {
+  if (!SNAP) { takeSnap(); return false; }
+  const now = Date.now(); let ch = false;
+  if (!isObj(S.del)) S.del = {};
+  const cols = {};
+  for (const col of SYNC_COLS) {
+    const old = SNAP.cols[col], m = new Map();
+    for (const x of S[col]) {
+      const o = old.get(x.id), k = itemKey(col, x);
+      if (o && o.k === k) x.u = o.u; else { x.u = now; ch = true; }
+      const n = { k, u: x.u };
+      if (col === 'systems') {
+        const ol = o ? o.log : {}; n.log = {};
+        for (const d in ol) if (!x.log[d]) { x.log[d] = { d: 0, s: [], u: now }; ch = true; }
+        for (const d in x.log) {
+          const e = x.log[d], oe = ol[d], ek = logKey(e);
+          if (oe && oe.k === ek) e.u = oe.u; else { e.u = now; ch = true; }
+          n.log[d] = { k: ek, u: e.u };
+        }
+      }
+      m.set(x.id, n);
+    }
+    for (const id of old.keys()) if (!m.has(id)) { S.del[id] = now; ch = true; }
+    cols[col] = m;
+  }
+  const sk = setKey(S.settings), mk = manKey(S.meta.manual);
+  if (sk !== SNAP.set) { S.settings.u = now; ch = true; }
+  if (mk !== SNAP.man) { S.meta.manU = now; ch = true; }
+  SNAP = { cols, set: sk, man: mk };
+  return ch;
+}
+/* Marks everything as changed now (used by Import · Replace so the backup wins everywhere). */
+function touchAll(oldIds) {
+  const now = Date.now();
+  for (const col of SYNC_COLS) {
+    const have = new Set(S[col].map(x => x.id));
+    for (const id of (oldIds[col] || [])) if (!have.has(id)) S.del[id] = now;
+    for (const x of S[col]) { x.u = now; if (col === 'systems') for (const d in x.log) x.log[d].u = now; }
+  }
+  S.settings.u = now; S.meta.manU = now;
+  takeSnap();
+}
+const idsOf = st => Object.fromEntries(SYNC_COLS.map(c => [c, st[c].map(x => x.id)]));
+
+/* ---------- cloud payload ---------- */
+function syncData(st) {
+  const c = sanitizeState({
+    goals: st.goals, systems: st.systems, tasks: st.tasks, expenses: st.expenses, areas: st.areas, cats: st.cats, del: st.del,
+    settings: { budget: st.settings.budget, rates: st.settings.rates, u: st.settings.u }
+  });
+  const m = st.meta && st.meta.manual;
+  return {
+    app: APP_ID, v: 2,
+    goals: c.goals, systems: c.systems, tasks: c.tasks, expenses: c.expenses, areas: c.areas, cats: c.cats, del: c.del,
+    set: { budget: c.settings.budget, rates: c.settings.rates, u: c.settings.u },
+    man: { date: m ? m.date : '', idx: m ? m.idx : 0, u: sTs(st.meta && st.meta.manU) }
+  };
+}
+const payloadStr = () => JSON.stringify(syncData(S));
+function parseRemote(str) {
+  let o; try { o = JSON.parse(str); } catch (e) { throw { kind: 'bad', msg: 'Cloud data could not be read' }; }
+  if (!isObj(o) || o.app !== APP_ID) throw { kind: 'foreign' };
+  const set = isObj(o.set) ? o.set : {}, man = isObj(o.man) ? o.man : {};
+  const c = sanitizeState({ goals: o.goals, systems: o.systems, tasks: o.tasks, expenses: o.expenses, areas: o.areas, cats: o.cats, del: o.del,
+    settings: { budget: set.budget, rates: set.rates, u: set.u } });
+  return {
+    goals: c.goals, systems: c.systems, tasks: c.tasks, expenses: c.expenses, areas: c.areas, cats: c.cats, del: c.del,
+    set: { budget: c.settings.budget, rates: c.settings.rates, u: c.settings.u },
+    man: { date: sDate(man.date), idx: Math.round(sNum(man.idx, 0, 200, 0)), u: sTs(man.u) }
+  };
+}
+
+/* ---------- merge (same answer whichever device runs it) ---------- */
+function newer(a, b) {
+  if (!a) return b; if (!b) return a;
+  if ((a.u || 0) !== (b.u || 0)) return (a.u || 0) > (b.u || 0) ? a : b;
+  return canon(a) >= canon(b) ? a : b;
+}
+function mergeLog(a, b) {
+  const out = {};
+  for (const d of new Set([...Object.keys(a || {}), ...Object.keys(b || {})])) {
+    const x = a && a[d], y = b && b[d];
+    if (!x || !y) { out[d] = x || y; continue; }
+    if ((x.u || 0) !== (y.u || 0)) { out[d] = (x.u || 0) > (y.u || 0) ? x : y; continue; }
+    out[d] = x.d !== y.d ? (x.d ? x : y) : (canon(x) >= canon(y) ? x : y);
+  }
+  return out;
+}
+function mergeIn(R) {
+  const del = { ...R.del };
+  for (const [k, t] of Object.entries(S.del || {})) if (!(k in del) || t > del[k]) del[k] = t;
+  for (const col of SYNC_COLS) {
+    const L = new Map(S[col].map(x => [x.id, x])), used = new Set(), out = [];
+    const take = (l, r) => {
+      let w = newer(l, r);
+      if (col === 'systems' && l && r) w = { ...w, log: mergeLog(l.log, r.log) };
+      return w;
+    };
+    for (const r of R[col]) { used.add(r.id); out.push(take(L.get(r.id), r)); }
+    for (const l of S[col]) if (!used.has(l.id)) out.push(l);
+    S[col] = out.filter(x => !(x.id in del) || (x.u || 0) > del[x.id]);
+  }
+  if (!S.areas.length) S.areas = DEF_AREAS.map(a => ({ ...a }));
+  if (!S.cats.length) S.cats = DEF_CATS.map(c => ({ ...c }));
+  S.del = sDel(del);
+  const ls = { budget: S.settings.budget, rates: S.settings.rates, u: S.settings.u || 0 };
+  const w = newer(ls, R.set);
+  if (w === R.set) { S.settings.budget = R.set.budget; S.settings.rates = { ...R.set.rates }; S.settings.u = R.set.u; }
+  if (R.man.u > (S.meta.manU || 0)) { S.meta.manual = R.man.date ? { date: R.man.date, idx: R.man.idx } : null; S.meta.manU = R.man.u; }
+  if (S.meta.focus && !S.goals.some(g => g.id === S.meta.focus)) S.meta.focus = '';
+  takeSnap();
+}
+function replaceWithRemote(R) {
+  for (const col of SYNC_COLS) S[col] = R[col].map(x => ({ ...x }));
+  S.del = { ...R.del };
+  S.settings.budget = R.set.budget; S.settings.rates = { ...R.set.rates }; S.settings.u = R.set.u;
+  S.meta.manual = R.man.date ? { date: R.man.date, idx: R.man.idx } : null; S.meta.manU = R.man.u;
+  S.meta.exNote = false; S.meta.welcomed = true; S.meta.focus = '';
+  takeSnap();
+}
+const hasOwnData = () => ['goals', 'systems', 'tasks', 'expenses'].some(k => S[k].some(x => !x.id.startsWith('ex-')));
+
+/* ---------- sync settings on this device ---------- */
+const SC = { on: false, pin: '', server: '', slot: 'the-way', rev: 0, hash: '', last: 0 };
+function loadSC() {
+  try {
+    const o = JSON.parse(lsGet(LS_SYNC) || 'null'); if (!isObj(o)) return;
+    SC.on = sBool(o.on); SC.pin = /^\d{4,8}$/.test(o.pin) ? o.pin : '';
+    SC.server = /^https?:\/\/[^\s"'<>]+$/.test(o.server || '') ? sStr(o.server, 200) : '';
+    SC.slot = /^[a-z0-9-]{1,40}$/.test(o.slot) ? o.slot : 'the-way';
+    SC.rev = Math.round(sNum(o.rev, 0, 1e12, 0)); SC.hash = sStr(o.hash, 60); SC.last = sTs(o.last);
+    if (!SC.pin) SC.on = false;
+  } catch (e) { /* ignore */ }
+}
+function saveSC() { lsSet(LS_SYNC, JSON.stringify(SC)); }
+const pageServer = () => /^https?:$/.test(location.protocol) ? location.origin : '';
+const apiBase = () => (SC.server || pageServer()).replace(/\/+$/, '');
+
+/* ---------- sync engine ---------- */
+const SY = { st: 'off', msg: '', busy: false, again: false, timer: 0, until: 0, gen: 1, clean: 0 };
+function markDirty() { SY.gen++; }
+
+async function api(method, path, body, pin, server) {
+  const base = (server || apiBase()).replace(/\/+$/, '');
+  if (!base) throw { kind: 'noserver' };
+  const ctl = typeof AbortController === 'function' ? new AbortController() : null;
+  const tm = setTimeout(() => { if (ctl) ctl.abort(); }, 20000);
+  const headers = { 'X-Pin': pin == null ? SC.pin : pin };
+  if (body) headers['Content-Type'] = 'application/json';
+  let r;
+  try { r = await fetch(base + '/api' + path, { method, headers, body: body ? JSON.stringify(body) : undefined, cache: 'no-store', signal: ctl ? ctl.signal : undefined }); }
+  catch (e) { throw { kind: 'net', msg: e && e.message }; }
+  finally { clearTimeout(tm); }
+  let j = null; try { j = await r.json(); } catch (e) { /* not json */ }
+  if (r.status === 401) throw { kind: 'pin', left: j && j.triesLeft };
+  if (r.status === 429) throw { kind: 'locked', wait: (j && j.retryIn) || 900 };
+  if (r.status === 409 && j) return { conflict: true, ...j };
+  if (!r.ok || !j) throw { kind: j && j.error === 'setup' ? 'setup' : 'server', msg: (j && (j.detail || j.error)) || ('HTTP ' + r.status) };
+  return j;
+}
+function syncErrText(e) {
+  if (!e || typeof e !== 'object') return 'Sync failed.';
+  return {
+    net: 'Can’t reach the sync server. Changes are kept on this device.',
+    pin: 'The PIN was not accepted.' + (e.left > 0 ? ` ${e.left} tr${e.left === 1 ? 'y' : 'ies'} left before a 15-minute pause.` : ''),
+    locked: `Too many wrong PINs. Sync is paused for ${Math.ceil((e.wait || 900) / 60)} min.`,
+    setup: 'The sync site isn’t set up yet: ' + (e.msg || ''),
+    noserver: 'Add the address of your sync site first.',
+    foreign: 'That cloud space holds data from another tool.',
+    bad: e.msg || 'Cloud data could not be read.',
+    server: 'The sync server had a problem (' + (e.msg || 'unknown') + '). It will try again.'
+  }[e.kind] || 'Sync failed.';
+}
+function setSync(st, msg = '') {
+  SY.st = st; SY.msg = msg;
+  const d = document.getElementById('sdot');
+  if (d) { d.className = 'sdot s-' + st; d.classList.toggle('hidden', !SC.on); d.title = syncLine(); }
+  const b = document.getElementById('syncBox'); if (b && !b.contains(document.activeElement)) b.innerHTML = syncInner();
+  if (typeof watchSyncChanged === 'function') watchSyncChanged();
+}
+function ago(t) {
+  if (!t) return 'never';
+  const s = Math.max(0, (Date.now() - t) / 1000);
+  if (s < 50) return 'just now'; if (s < 3600) return Math.round(s / 60) + ' min ago';
+  if (s < 86400) return Math.round(s / 3600) + ' h ago';
+  return fmtDay(keyOf(new Date(t)), true);
+}
+function syncLine() {
+  if (!SC.on) return 'Sync is off';
+  if (SY.st === 'busy') return 'Syncing…';
+  if (SY.st === 'ok') return 'Synced · ' + ago(SC.last);
+  if (SY.st === 'offline') return 'Offline · changes wait on this device';
+  return SY.msg || 'Not synced yet';
+}
+function schedSync(ms = 1500) { clearTimeout(SY.timer); SY.timer = setTimeout(() => syncNow(false), ms); }
+
+function applyRemote(g) {
+  if (g.data == null) { SC.rev = 0; SC.hash = ''; saveSC(); markDirty(); return; }
+  const R = parseRemote(g.data);
+  mergeIn(R);
+  SC.rev = g.rev; SC.hash = hashStr(g.data); saveSC();
+  markDirty();
+  lsSet(LS_KEY, JSON.stringify(S));
+  afterRemote();
+}
+let renderWaiting = false;
+function afterRemote() {
+  if (isTyping()) { renderWaiting = true; return; }
+  render(); refreshSheets();
+}
+async function syncNow(manual) {
+  if (!SC.on) return setSync('off');
+  if (SY.busy) { SY.again = true; return; }
+  if (!manual && SY.st === 'pin') return;
+  if (!manual && SY.st === 'locked' && Date.now() < SY.until) return;
+  if (navigator.onLine === false) return setSync('offline');
+  SY.busy = true; setSync('busy');
+  try {
+    const g = await api('GET', '/slot/' + SC.slot + '?since=' + SC.rev);
+    if (!g.same) applyRemote(g);
+    for (let i = 0; i < 5 && SY.gen !== SY.clean; i++) {
+      const gen = SY.gen, str = payloadStr(), h = hashStr(str);
+      if (h === SC.hash) { SY.clean = gen; break; }
+      const r = await api('PUT', '/slot/' + SC.slot, { base: SC.rev, data: str });
+      if (r.conflict) { applyRemote(r); continue; }
+      SC.rev = r.rev; SC.hash = h; SY.clean = gen; saveSC();
+    }
+    SC.last = Date.now(); saveSC();
+    setSync('ok');
+  } catch (e) {
+    if (e && e.kind === 'locked') SY.until = Date.now() + (e.wait || 900) * 1000;
+    if (e && e.kind !== 'net') logDiag('sync: ' + (e.kind || '') + ' ' + (e.msg || e.message || ''));
+    setSync(e && e.kind === 'net' ? 'offline' : (e && e.kind) || 'error', syncErrText(e));
+  } finally {
+    SY.busy = false;
+    if (SY.again) { SY.again = false; schedSync(300); }
+  }
+}
+/* When the page is hidden, try one last quick save (small data only). */
+function flushOnHide() {
+  if (!SC.on || SY.busy || SY.gen === SY.clean || SY.st === 'pin' || SY.st === 'locked') return;
+  try {
+    const str = payloadStr(); if (hashStr(str) === SC.hash) return;
+    const body = JSON.stringify({ base: SC.rev, data: str });
+    if (body.length > 60000 || !apiBase()) return;
+    fetch(apiBase() + '/api/slot/' + SC.slot, { method: 'PUT', keepalive: true, headers: { 'X-Pin': SC.pin, 'Content-Type': 'application/json' }, body }).catch(() => {});
+  } catch (e) { /* ignore */ }
+}
+
+/* ---------- connect / disconnect ---------- */
+let pendingCloud = null;
+async function connectSync(pin, server) {
+  await api('GET', '/ping', null, pin, server);
+  const g = await api('GET', '/slot/' + SC.slot, null, pin, server);
+  const R = g.data == null ? null : parseRemote(g.data);
+  SC.pin = pin; SC.server = server; SC.on = true; SC.rev = 0; SC.hash = ''; SY.clean = 0; markDirty();
+  if (!R) { saveSC(); return 'empty'; }
+  if (!hasOwnData()) { replaceWithRemote(R); SC.rev = g.rev; SC.hash = hashStr(g.data); SY.clean = SY.gen; saveSC(); lsSet(LS_KEY, JSON.stringify(S)); return 'took'; }
+  pendingCloud = { R, g }; SC.on = false; // stays off until the person chooses
+  return 'ask';
+}
+function finishConnect(choice) {
+  const p = pendingCloud; pendingCloud = null; if (!p) return;
+  if (choice === 'cloud') replaceWithRemote(p.R); else mergeIn(p.R);
+  SC.on = true; SC.rev = p.g.rev; SC.hash = hashStr(p.g.data); markDirty(); saveSC();
+  lsSet(LS_KEY, JSON.stringify(S));
+}
+function disconnectSync() {
+  Object.assign(SC, { on: false, pin: '', rev: 0, hash: '', last: 0 }); saveSC();
+  clearTimeout(SY.timer); setSync('off');
+}
+
+/* ---------- settings panel ---------- */
+function syncInner() {
+  const host = pageServer() ? location.host : '';
+  if (!SC.on) {
+    return `<div class="lbl">Cloud sync</div>
+      <p class="sm" style="margin-top:6px">Keep this phone, your watch and other devices in step. Your sync site needs to be set up once (see the setup guide).</p>
+      <div class="fld"><label>Sync PIN</label><input class="in" name="spin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="8" autocomplete="off" placeholder="4 digits"></div>
+      ${host ? `<div class="hint">Sync site: ${esc(host)} · <button type="button" class="link" data-act="syncSrvShow" style="font-size:12px">use another</button></div>` : ''}
+      <div class="fld${host && !SC.server ? ' hidden' : ''}" id="srvFld"><label>Sync site address</label><input class="in" name="ssrv" inputmode="url" autocomplete="off" value="${esc(SC.server)}" placeholder="https://your-site.pages.dev"></div>
+      <div class="err" id="syncErr"></div>
+      <div class="btns"><button class="btn" data-act="syncConnect">Connect</button></div>`;
+  }
+  const bad = SY.st === 'pin';
+  return `<div class="lbl">Cloud sync</div>
+    <div class="row" style="margin-top:8px"><span class="sdot s-${SY.st}" style="position:static"></span><div class="sp" style="font-size:14px">${esc(syncLine())}</div></div>
+    ${SY.st !== 'ok' && SY.st !== 'busy' && SY.msg ? `<p class="sm" style="margin-top:6px">${esc(SY.msg)}</p>` : ''}
+    <p class="sm" style="margin-top:6px">Site: ${esc((apiBase() || '').replace(/^https?:\/\//, ''))} · last synced ${esc(ago(SC.last))}</p>
+    ${bad ? `<div class="srow"><input class="in" name="spin2" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="8" autocomplete="off" placeholder="PIN" style="flex:1"><button class="btn" data-act="syncPin">Try PIN</button></div>` : ''}
+    <div class="btns"><button class="btn" data-act="syncNowBtn">Sync now</button><button class="btn g" data-act="syncOff">Disconnect</button></div>`;
+}
+'use strict';
+/* ===== app.js — The Way ===== */
+let S = null;
+let THEME = 'sea';
+const ui = { tab: 'today', taskView: 'open', month: '', showArch: false };
+const sheets = [];          // {el, pushed, refresh}
+let ignorePop = 0, guardTime = 0, liteAuto = false, lastPhase = '', pendingImport = null, pendingConfirm = null;
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const pad = n => String(n).padStart(2, '0');
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const DOWL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const MONL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+function now() { return new Date(Date.now() + (S ? S.meta.preview : 0)); }
+function keyOf(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+function todayKey() { return keyOf(now()); }
+function parseKey(k) { const [y, m, d] = k.split('-').map(Number); return new Date(y, m - 1, d); }
+function addDays(k, n) { const d = parseKey(k); d.setDate(d.getDate() + n); return keyOf(d); }
+function diffDays(a, b) { return Math.round((parseKey(b) - parseKey(a)) / 864e5); }
+function fmtDay(k, year) { const d = parseKey(k); return DOW[d.getDay()] + ' ' + d.getDate() + ' ' + MON[d.getMonth()] + (year ? ' ' + d.getFullYear() : ''); }
+function toMin(t) { const [h, m] = t.split(':').map(Number); return h * 60 + m; }
+function hhmm(min) { min = ((Math.round(min) % 1440) + 1440) % 1440; return pad(Math.floor(min / 60)) + ':' + pad(min % 60); }
+function fmtMin(m) { m = Math.max(0, Math.ceil(m)); if (m < 60) return m + 'm'; const h = Math.floor(m / 60), r = m % 60; return h + 'h' + (r ? ' ' + r + 'm' : ''); }
+function fmtVND(n) { return Math.round(n).toLocaleString('en-US') + ' ₫'; }
+function trimNum(x) { return String(+x.toFixed(x < 10 ? 1 : 0)); }
+function fmtShort(n) {
+  const a = Math.abs(n), s = n < 0 ? '-' : '';
+  if (a >= 1e9) return s + trimNum(a / 1e9) + 'B';
+  if (a >= 1e6) return s + trimNum(a / 1e6) + 'M';
+  if (a >= 1e3) return s + trimNum(a / 1e3) + 'k';
+  return s + Math.round(a);
+}
+function fmtNum(n) { return Number.isInteger(n) ? n.toLocaleString('en-US') : (+n.toFixed(2)).toLocaleString('en-US'); }
+function parseAmt(str) {
+  let s = String(str == null ? '' : str).trim().toLowerCase().replace(/[\s₫đ]|vnd/g, '');
+  if (!s) return NaN;
+  let mult = 1;
+  const m = s.match(/(k|nghìn|ngàn|m|tr|triệu|b|tỷ|ty)$/);
+  if (m) { mult = /^(k|nghìn|ngàn)$/.test(m[1]) ? 1e3 : /^(b|tỷ|ty)$/.test(m[1]) ? 1e9 : 1e6; s = s.slice(0, -m[1].length); }
+  if (mult > 1) s = s.replace(',', '.');
+  else if (/^\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, '');
+  s = s.replace(/,/g, '');
+  if (!/^\d*\.?\d+$|^\d+\.$/.test(s)) return NaN;
+  const n = Number(s) * mult;
+  return Number.isFinite(n) && n >= 0 ? n : NaN;
+}
+function toast(msg, ms = 2400) {
+  const t = $('#toast'); if (!t) return;
+  if (document.body.classList.contains('watch')) ms = Math.min(ms, 1600);
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('show'), ms);
+}
+const byId = (arr, id) => id ? arr.find(x => x.id === id) : undefined;
+const areaOf = id => byId(S.areas, id);
+const goalOf = id => byId(S.goals, id);
+const catOf = id => byId(S.cats, id);
+function areaChip(id) {
+  const i = S.areas.findIndex(a => a.id === id);
+  if (i < 0) return '';
+  return `<span class="chip${i % 2 ? ' a2' : ''}">${esc(S.areas[i].name)}</span>`;
+}
+const areaCls = id => (S.areas.findIndex(a => a.id === id) % 2 === 1) ? 'a2' : '';
+
+/* ---------- model logic ---------- */
+function goalPct(g) {
+  if (g.kind === 'num') return g.target > 0 ? clamp(g.cur / g.target) : 0;
+  return g.ms.length ? g.ms.filter(m => m.done).length / g.ms.length : 0;
+}
+function fmtUnit(v, unit) { return unit === '₫' ? fmtShort(v) + ' ₫' : fmtNum(v) + (unit ? ' ' + unit : ''); }
+function goalText(g) {
+  if (g.kind === 'num') return fmtUnit(g.cur, g.unit) + ' of ' + fmtUnit(g.target, g.unit);
+  return g.ms.length ? g.ms.filter(m => m.done).length + ' of ' + g.ms.length + ' milestones' : 'No milestones yet';
+}
+const activeGoals = () => S.goals.filter(g => !g.arch);
+function focusGoal() {
+  const act = activeGoals(); if (!act.length) return null;
+  const f = act.find(g => g.id === S.meta.focus);
+  return f || act.find(g => g.star) || act[0];
+}
+function dowOf(k) { return parseKey(k).getDay(); }
+function scheduledOn(s, k) { return !s.paused && s.days.includes(dowOf(k)); }
+function isDone(s, k) { return !!(s.log[k] && s.log[k].d); }
+function setDone(s, k, v) {
+  const e = s.log[k] || { d: 0, s: [] }; e.d = v ? 1 : 0;
+  if (!e.d && !e.s.length) delete s.log[k]; else s.log[k] = e;
+}
+function createdKey(ts) { return ts ? keyOf(new Date(ts)) : '1970-01-01'; }
+function sysStreak(s) {
+  const k = todayKey(), start = createdKey(s.created); let n = 0;
+  for (let i = 0; i < 400; i++) {
+    const d = addDays(k, -i);
+    if (d < start && !isDone(s, d)) break;
+    if (!s.days.includes(dowOf(d))) continue;
+    if (isDone(s, d)) n++; else if (i === 0) continue; else break;
+  }
+  return n;
+}
+function overallStreak() {
+  const k = todayKey(); let n = 0;
+  const live = S.systems.filter(s => !s.paused);
+  if (!live.length) return 0;
+  for (let i = 0; i < 366; i++) {
+    const d = addDays(k, -i);
+    const due = live.filter(s => s.days.includes(dowOf(d)) && createdKey(s.created) <= d);
+    if (!due.length) { if (live.every(s => createdKey(s.created) > d)) break; continue; }
+    if (due.every(s => isDone(s, d))) n++; else if (i === 0) continue; else break;
+  }
+  return n;
+}
+function todayBlocks(k) {
+  return S.systems.filter(s => s.time && scheduledOn(s, k))
+    .map(s => ({ s, start: toMin(s.time), end: toMin(s.time) + s.dur }))
+    .sort((a, b) => a.start - b.start || a.s.title.localeCompare(b.s.title));
+}
+function nowInfo() {
+  const k = todayKey(), n = now(), nm = n.getHours() * 60 + n.getMinutes() + n.getSeconds() / 60;
+  const B = todayBlocks(k);
+  const man = S.meta.manual && S.meta.manual.date === k ? S.meta.manual : null;
+  if (man) { const i = Math.min(man.idx, B.length); return { mode: 'manual', B, i, cur: B[i] || null, next: B[i + 1] || null, nextIdx: i + 1, nm, k }; }
+  const i = B.findIndex(b => b.start <= nm && nm < b.end);
+  if (i >= 0) return { mode: 'clock', B, i, cur: B[i], next: B[i + 1] || null, nextIdx: i + 1, nm, k };
+  const j = B.findIndex(b => b.start > nm);
+  return { mode: 'clock', B, i: -1, cur: null, next: j >= 0 ? B[j] : null, nextIdx: j, nm, k };
+}
+function todayStats() {
+  const k = todayKey();
+  const sys = S.systems.filter(s => scheduledOn(s, k));
+  const sysDone = sys.filter(s => isDone(s, k)).length;
+  const open = S.tasks.filter(t => !t.done && t.due && t.due <= k);
+  const overdue = open.filter(t => t.due < k).length;
+  const doneToday = S.tasks.filter(t => t.done && t.doneAt === k).length;
+  const total = sys.length + open.length + doneToday, done = sysDone + doneToday;
+  return { total, done, left: total - done, overdue };
+}
+function monthKey(k) { return k.slice(0, 7); }
+function daysInMonth(ym) { const [y, m] = ym.split('-').map(Number); return new Date(y, m, 0).getDate(); }
+function monthStats(ym) {
+  let spent = 0, out = 0; const byCat = {};
+  for (const e of S.expenses) {
+    if (!e.date.startsWith(ym)) continue;
+    if (e.out) { out += e.amt; continue; }
+    spent += e.amt; byCat[e.cat] = (byCat[e.cat] || 0) + e.amt;
+  }
+  const budget = S.settings.budget, left = budget - spent;
+  const tk = todayKey(); let daysLeft = 0;
+  if (monthKey(tk) === ym) daysLeft = daysInMonth(ym) - parseKey(tk).getDate() + 1;
+  return { spent, out, byCat, budget, left, daysLeft, perDay: daysLeft ? Math.max(0, left) / daysLeft : 0 };
+}
+function goalSpent(id) { let s = 0; for (const e of S.expenses) if (e.goal === id) s += e.amt; return s; }
+function daysSummary(days) {
+  const k = [...days].sort().join(',');
+  if (k === '0,1,2,3,4,5,6') return 'Daily';
+  if (k === '1,2,3,4,5') return 'Weekdays';
+  if (k === '0,6') return 'Weekends';
+  return [1, 2, 3, 4, 5, 6, 0].filter(d => days.includes(d)).map(d => DOW[d]).join(' ');
+}
+function sysWhen(s) { return s.time ? s.time + '–' + hhmm(toMin(s.time) + s.dur) : 'Anytime'; }
+function dueLabel(t) {
+  if (!t.due) return { txt: 'No date', bad: false };
+  const k = todayKey(), dd = diffDays(k, t.due);
+  if (dd < 0 && !t.done) return { txt: 'Overdue · ' + (dd === -1 ? 'yesterday' : (-dd) + ' days'), bad: true };
+  if (dd === 0) return { txt: 'Today', bad: false };
+  if (dd === 1) return { txt: 'Tomorrow', bad: false };
+  return { txt: fmtDay(t.due, parseKey(t.due).getFullYear() !== parseKey(k).getFullYear()), bad: false };
+}
+
+/* ---------- storage glue ---------- */
+function save() {
+  const ch = stampChanges();
+  if (!lsSet(LS_KEY, JSON.stringify(S))) storageOK = false;
+  if (ch) { markDirty(); if (SC.on) schedSync(1500); }
+}
+function commit(msg) {
+  S.meta.changes++;
+  save(); render(); refreshSheets();
+  if (msg) toast(msg);
+}
+
+/* ---------- theme ---------- */
+function pickTheme() {
+  THEME = S.settings.theme === 'random' ? THEME_NAMES[Math.floor(Math.random() * 4)] : S.settings.theme;
+  const t = THEMES[THEME], r = document.documentElement.style;
+  r.setProperty('--ac', t.ac); r.setProperty('--ac2', t.ac2);
+  lastPhase = '';
+}
+
+/* ---------- icons ---------- */
+const IC = {
+  today: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>',
+  systems: '<svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>',
+  tasks: '<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12l3 3 5-6"/></svg>',
+  goals: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/></svg>',
+  budget: '<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h2"/></svg>',
+  gear: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>',
+  plus: '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>'
+};
+function ring(p, color, size, big, small) {
+  const r = size / 2 - 8, C = 2 * Math.PI * r, pp = clamp(p);
+  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true"><circle cx="${size / 2}" cy="${size / 2}" r="${r}" stroke="#E6E0D4" stroke-width="8" fill="none"/>` +
+    (pp > 0 ? `<circle cx="${size / 2}" cy="${size / 2}" r="${r}" stroke="${color}" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="${(C * pp).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 ${size / 2} ${size / 2})"/>` : '') +
+    `<text x="50%" y="48%" text-anchor="middle" font-family="ui-monospace,'Roboto Mono',monospace" font-size="${size > 110 ? 22 : 19}" fill="#1E2733">${esc(big)}</text>` +
+    `<text x="50%" y="64%" text-anchor="middle" font-family="system-ui,Roboto,sans-serif" font-size="10.5" fill="#6B7480">${esc(small)}</text></svg>`;
+}
+
+/* ---------- render ---------- */
+function render() {
+  try { renderAll(); }
+  catch (e) {
+    logDiag('render: ' + (e && e.stack ? e.stack.split('\n').slice(0, 2).join(' | ') : e));
+    const wv = document.body.classList.contains('watch') && document.getElementById('watch');
+    if (wv) { wv.innerHTML = `<div class="wv"><div class="wc mid"><div class="wbig">Something went wrong</div><div class="wnote">Your data is safe.</div><button class="wbtn" data-act="retry">Try again</button><button class="wbtn g" data-act="wPhone">Phone view</button></div></div>`; return; }
+    const m = $('#main');
+    if (m) m.innerHTML = `<div class="card" style="margin-top:70px"><div class="h3">Something went wrong…</div><p class="sm" style="margin-top:6px">Your data is safe. You can export a backup, then try again.</p><div class="btns"><button class="btn" data-act="export">Export backup</button><button class="btn g" data-act="retry">Try again</button></div><button class="link" data-act="settings">Open settings & diagnostics</button></div>`;
+  }
+}
+function renderAll() {
+  document.body.classList.toggle('lite', S.settings.lite);
+  const W = isWatch();
+  document.body.classList.toggle('watch', W);
+  if (W) { renderWatch(); return; }
+  renderHeader();
+  const V = { today: viewToday, systems: viewSystems, tasks: viewTasks, goals: viewGoals, budget: viewBudget }[ui.tab] || viewToday;
+  $('#main').innerHTML = V();
+  document.querySelectorAll('.tab[data-tab]').forEach(t => t.classList.toggle('on', t.dataset.tab === ui.tab));
+}
+function renderHeader() {
+  const n = now(), ph = phaseOf(n.getHours());
+  const hd = $('#hd'), img = $('#scene');
+  const key = THEME + ph;
+  if (lastPhase !== key) { img.src = sceneURL(THEME, ph); lastPhase = key; }
+  hd.classList.toggle('dark', !!(PHASES[ph] && PHASES[ph].dark));
+  hd.classList.toggle('short', ui.tab !== 'today');
+  const pv = S.meta.preview ? '<span class="pv">Preview</span>' : '';
+  let h = '';
+  if (ui.tab === 'today') {
+    const st = overallStreak();
+    h = `<div class="clk" id="clk">${pad(n.getHours())}:${pad(n.getMinutes())}</div><div class="sub">${DOWL[n.getDay()]}, ${n.getDate()} ${MONL[n.getMonth()]}${st > 0 ? ' · ' + st + '-day streak' : ''}${pv}</div>`;
+  } else {
+    const k = todayKey(); let title = '', sub = '';
+    if (ui.tab === 'systems') { const sy = S.systems.filter(s => scheduledOn(s, k)); title = 'Systems'; sub = sy.length ? `${sy.filter(s => isDone(s, k)).length} of ${sy.length} done today` : 'Routines that move your goals'; }
+    if (ui.tab === 'tasks') { const o = S.tasks.filter(t => !t.done); const od = o.filter(t => t.due && t.due < k).length; title = 'Tasks'; sub = `${o.length} open${od ? ' · ' + od + ' overdue' : ''}`; }
+    if (ui.tab === 'goals') { const a = activeGoals(); title = 'Goals'; sub = a.length ? `${a.length} active · average ${Math.round(a.reduce((x, g) => x + goalPct(g), 0) / a.length * 100)}%` : 'Where you are heading'; }
+    if (ui.tab === 'budget') { const ym = ui.month || monthKey(k); const [y, m] = ym.split('-').map(Number); title = 'Budget'; sub = MONL[m - 1] + ' ' + y; }
+    h = `<div class="ttl">${title}</div><div class="sub">${esc(sub)}${pv}</div>`;
+  }
+  $('#hdMain').innerHTML = h;
+}
+function banners() {
+  let h = '';
+  if (!storageOK) h += `<div class="banner"><div class="sp">Storage is blocked on this page, so changes won't be kept after closing. Export a backup to keep your data.</div><button class="btn" data-act="export">Export</button></div>`;
+  if (S.meta.preview) { const n = now(); h += `<div class="banner info"><div class="sp">Preview time: ${fmtDay(keyOf(n))} ${pad(n.getHours())}:${pad(n.getMinutes())}</div><button class="btn" data-act="previewOff">Real time</button></div>`; }
+  return h;
+}
+function hasData() { return S.goals.length || S.systems.length || S.tasks.length || S.expenses.length; }
+
+/* ----- Today ----- */
+function routeHTML(g) {
+  const n = g.ms.length;
+  if (n < 2) return `<div class="bar"><i class="${areaCls(g.area)}" style="width:${(goalPct(g) * 100).toFixed(1)}%"></i></div><div class="sm" style="margin-top:6px">${esc(goalText(g))}</div>`;
+  const doneN = g.ms.filter(m => m.done).length;
+  const curI = g.ms.findIndex(m => !m.done);
+  const fill = doneN === 0 ? 0 : doneN >= n ? 100 : (doneN - 1) / (n - 1) * 100;
+  let dots = '', labs = '';
+  // all labels only if every one fits without truncation or overlap; otherwise just the current one
+  const W = Math.min(window.innerWidth || 380, 640) - 74, room = 0.62 * W / (n - 1);
+  const allFit = n <= 5 && g.ms.every(m => m.t.length * 6.3 <= room);
+  g.ms.forEach((m, i) => {
+    const x = (i / (n - 1) * 100).toFixed(2);
+    dots += `<span class="m${m.done ? ' on' : ''}${i === curI ? ' cur' : ''}" style="left:${x}%"></span>`;
+    if (allFit) labs += `<span class="${i === 0 ? 'f' : i === n - 1 ? 'l' : ''}${i === curI ? ' cur' : ''}" style="left:${x}%">${esc(m.t)}</span>`;
+  });
+
+  return `<div class="route"><div class="ln"><i style="width:${fill.toFixed(1)}%"></i></div>${dots}</div>${allFit ? `<div class="rlab">${labs}</div>` : ''}` +
+    (!allFit ? `<div class="sm" style="margin-top:4px">${curI >= 0 ? 'Next: ' + esc(g.ms[curI].t) + ' · ' : ''}${doneN} of ${n} milestones</div>` : '');
+}
+function focusCard() {
+  const g = focusGoal();
+  if (!g) return `<div class="card"><div class="lbl">Focus goal</div><div class="h2">Where are you heading?</div><p class="sm" style="margin-top:6px">Add a goal, then build the systems and tasks that move it.</p><div class="btns"><button class="btn" data-act="add" data-type="goal">Add your first goal</button></div></div>`;
+  const cands = activeGoals().filter(x => x.star);
+  const pos = cands.length > 1 ? ` · ${cands.findIndex(x => x.id === g.id) + 1}/${cands.length}` : '';
+  const fed = S.systems.filter(s => s.goal === g.id && !s.paused).map(s => s.title);
+  let foot = '';
+  if (g.kind === 'num') foot += `<div class="sm" style="margin-top:2px">${esc(goalText(g))} · ${Math.round(goalPct(g) * 100)}%</div>`;
+  if (fed.length) foot += `<div class="sm ell" style="margin-top:8px">Fed by: ${esc(fed.join(' · '))}</div>`;
+  if (g.deadline) { const dd = diffDays(todayKey(), g.deadline); foot += `<div class="sm" style="margin-top:4px">By ${fmtDay(g.deadline, true)} · ${dd >= 0 ? dd + ' days left' : '<span class="bad">' + (-dd) + ' days past</span>'}</div>`; }
+  return `<div class="card tap" data-act="focusNext">
+    <div class="row"><div class="lbl">Focus goal${pos}</div><div class="sp"></div>${areaChip(g.area)}</div>
+    <div class="row" style="align-items:flex-start"><div class="h2 sp">${esc(g.title)}</div><button class="link" data-act="goalOpen" data-id="${g.id}" style="padding:8px 0 0 8px">Open ›</button></div>
+    ${g.why ? `<div class="sm" style="margin-top:2px">Why: ${esc(g.why)}</div>` : ''}
+    ${g.kind === 'num' ? `<div class="bar"><i class="${areaCls(g.area)}" style="width:${(goalPct(g) * 100).toFixed(1)}%"></i></div>` : routeHTML(g)}
+    ${foot}</div>`;
+}
+function glanceCard() {
+  const t = todayStats(), ym = monthKey(todayKey()), m = monthStats(ym);
+  const tp = t.total ? t.done / t.total : 0;
+  const tsub = t.total ? `${t.left} left${t.overdue ? ` · <span class="bad">${t.overdue} overdue</span>` : ''}` : 'Nothing due today';
+  const bp = m.budget > 0 ? m.spent / m.budget : 0, over = m.spent > m.budget && m.budget > 0;
+  const bsub = m.budget > 0 ? (over ? `<span class="bad">Over by ${fmtShort(m.spent - m.budget)} ₫</span>` : `${fmtShort(m.left)} ₫ left · ${fmtShort(m.perDay)}/day`) : 'Set a monthly budget';
+  return `<div class="card"><div class="lbl">Today at a glance</div><div class="rings">
+    <button class="ring" data-act="tab" data-tab="tasks">${ring(tp, THEMES[THEME].ac, 120, t.total ? t.done + ' / ' + t.total : '—', 'done today')}<div class="ring-sub">${tsub}</div></button>
+    <button class="ring" data-act="tab" data-tab="budget">${ring(bp, over ? '#B93A2E' : THEMES[THEME].ac2, 120, m.budget > 0 ? Math.round(bp * 100) + '%' : '—', 'of ' + MON[Number(ym.slice(5)) - 1] + ' budget')}<div class="ring-sub">${bsub}</div></button>
+  </div></div>`;
+}
+function nowCard() {
+  const I = nowInfo();
+  if (!I.B.length) return `<div class="card"><div class="strip"><div class="vl" style="background:var(--line)"></div><div class="sp"><div class="lbl">Now</div><div class="h3" style="margin-top:2px">No timed blocks today</div><div class="sm">Give a system a start time to see it here.</div></div></div><div class="btns"><button class="btn g" data-act="add" data-type="system">Add a system</button></div></div>`;
+  const back = I.mode === 'manual' ? `<button class="link" data-act="nowClock">Back to clock</button>` : '';
+  if (I.cur) {
+    const b = I.cur, done = isDone(b.s, I.k);
+    const lab = I.mode === 'clock' ? `Now · until ${hhmm(b.end)}` : `Now · planned ${b.s.time}`;
+    const right = I.mode === 'clock' ? `<div class="big">${fmtMin(b.end - I.nm)}</div>` : `<div class="big" style="font-size:15px">manual</div>`;
+    const nx = I.next ? `Next ${I.next.s.time} ${esc(I.next.s.title)}` : 'Last block today';
+    return `<div class="card"><div class="strip"><div class="vl"></div><div class="sp"><div class="lbl">${lab}${done ? ' · ✓ done' : ''}</div><div class="h3 ell" style="margin-top:2px">${esc(b.s.title)}</div></div><div style="text-align:right;max-width:46%">${right}<div class="sm ell">${nx}</div></div></div>
+      <div class="btns"><button class="btn" style="flex:2" data-act="nowDone">${done ? 'On to next' : 'Done · on to next'}</button><button class="btn g" data-act="sysOpen" data-id="${b.s.id}">Open</button></div>${back}</div>`;
+  }
+  if (I.next) {
+    const b = I.next;
+    return `<div class="card"><div class="strip"><div class="vl" style="background:var(--ac2)"></div><div class="sp"><div class="lbl">Free until ${b.s.time}</div><div class="h3 ell" style="margin-top:2px">Next: ${esc(b.s.title)}</div></div><div style="text-align:right"><div class="big">in ${fmtMin(b.start - I.nm)}</div><div class="sm">${sysWhen(b.s)}</div></div></div>
+      <div class="btns"><button class="btn" style="flex:2" data-act="nowStart">Start now</button><button class="btn g" data-act="sysOpen" data-id="${b.s.id}">Open</button></div>${back}</div>`;
+  }
+  const dn = I.B.filter(b => isDone(b.s, I.k)).length;
+  return `<div class="card"><div class="strip"><div class="vl" style="background:var(--line)"></div><div class="sp"><div class="lbl">Now</div><div class="h3" style="margin-top:2px">${dn === I.B.length ? 'All blocks done for today' : 'Today’s blocks are over'}</div><div class="sm">${dn} of ${I.B.length} timed blocks done</div></div></div>${back}</div>`;
+}
+function goalsCard() {
+  const a = activeGoals(); if (!a.length) return '';
+  const list = [...a].sort((x, y) => (y.star - x.star));
+  return `<div class="card"><div class="row"><div class="lbl">Goals</div><div class="sp"></div><button class="link" data-act="tab" data-tab="goals">All ›</button></div>` +
+    list.slice(0, 6).map(g => `<div class="gl" data-act="goalOpen" data-id="${g.id}"><div class="row"><span class="ell sp">${esc(g.title)}</span>${g.star ? '<span class="star">★</span>' : ''}<span class="mono">${Math.round(goalPct(g) * 100)}%</span></div><div class="bar"><i class="${areaCls(g.area)}" style="width:${(goalPct(g) * 100).toFixed(1)}%"></i></div></div>`).join('') + '</div>';
+}
+function backupNudge() {
+  const c = S.meta.changes; if (!c || !hasData()) return '';
+  const old = !S.meta.lastBackup || Date.now() - S.meta.lastBackup > 7 * 864e5;
+  if (c < 10 && !old) return '';
+  return `<div class="banner info"><div class="sp">${c} change${c > 1 ? 's' : ''} since your last backup</div><button class="btn" data-act="export">Export</button></div>`;
+}
+function viewToday() {
+  let h = banners();
+  if (!S.meta.welcomed && !hasData()) {
+    h += `<div class="card"><div class="lbl">Welcome</div><div class="h2">Welcome to The Way</div><p class="sm" style="margin-top:6px;font-size:14px">Goals sit on top. Systems are the routines that move them, and tasks are the one-off steps. Start with a few examples to see how it works, or begin with a blank page.</p><div class="btns"><button class="btn" data-act="examples">Load examples</button><button class="btn g" data-act="welcomeDone">Start empty</button></div></div>`;
+    return h;
+  }
+  if (S.meta.exNote && hasExamples()) h += `<div class="banner info"><div class="sp">These are <b>examples</b> to show how everything works. Explore freely, then remove them when you're ready to add your own.</div></div><div class="btns" style="margin:-4px 0 12px"><button class="btn g" data-act="examplesDel">Remove examples</button><button class="btn g" data-act="exNoteOff">Keep for now</button></div>`;
+  return h + focusCard() + glanceCard() + nowCard() + goalsCard() + backupNudge();
+}
+
+/* ----- Systems ----- */
+function sysRow(s, k, showWhen = true) {
+  const d = isDone(s, k), st = sysStreak(s);
+  return `<div class="li${d ? ' dn' : ''}"><button class="ck round${d ? ' on' : ''}" data-act="sysToggle" data-id="${s.id}" aria-label="Done"></button>
+    <div class="main" data-act="sysOpen" data-id="${s.id}"><div class="t">${esc(s.title)}</div><div class="sm">${showWhen ? sysWhen(s) : daysSummary(s.days)}${s.goal && goalOf(s.goal) ? ' · ' + esc(goalOf(s.goal).title) : ''}</div></div>
+    ${st > 0 ? `<span class="mono sm" title="streak">${st}d</span>` : ''}</div>`;
+}
+function viewSystems() {
+  let h = banners();
+  const k = todayKey();
+  if (!S.systems.length) return h + `<div class="card"><div class="empty"><div class="h3" style="color:var(--ink)">No systems yet</div><p style="margin-top:6px">A system is a routine you repeat, like a morning review or a learning hour. Give it a time to see it in Now / Next, or leave it as “anytime”.</p><button class="btn" data-act="add" data-type="system">Add a system</button></div></div>`;
+  const today = S.systems.filter(s => scheduledOn(s, k)).sort((a, b) => (a.time ? 0 : 1) - (b.time ? 0 : 1) || (a.time || '').localeCompare(b.time || '') || a.title.localeCompare(b.title));
+  h += `<div class="card"><div class="row"><div class="lbl">Today · ${fmtDay(k)}</div><div class="sp"></div><span class="sm">${today.filter(s => isDone(s, k)).length} of ${today.length}</span></div>` +
+    (today.length ? today.map(s => sysRow(s, k)).join('') : '<div class="empty">Nothing scheduled today. Enjoy the rest.</div>') + '</div>';
+  const all = [...S.systems].sort((a, b) => a.paused - b.paused || (a.time || '99').localeCompare(b.time || '99'));
+  h += `<div class="card"><div class="row"><div class="lbl">All systems</div><div class="sp"></div><button class="link" data-act="add" data-type="system">+ New</button></div>` +
+    all.map(s => `<div class="xrow" data-act="sysOpen" data-id="${s.id}"><div class="sp"><div class="ell">${esc(s.title)}</div><div class="sm">${daysSummary(s.days)} · ${sysWhen(s)}</div></div>${s.paused ? '<span class="chip g">Paused</span>' : areaChip(s.area)}</div>`).join('') + '</div>';
+  return h;
+}
+
+/* ----- Tasks ----- */
+function taskRow(t) {
+  const dl = dueLabel(t), g = goalOf(t.goal);
+  return `<div class="li${t.done ? ' dn' : ''}"><button class="ck${t.done ? ' on' : ''}" data-act="taskToggle" data-id="${t.id}" aria-label="Done"></button>
+    <div class="main" data-act="taskEdit" data-id="${t.id}"><div class="t">${esc(t.title)}</div><div class="sm">${[t.done ? 'Done ' + (t.doneAt ? fmtDay(t.doneAt) : '') : (t.due ? `<span class="${dl.bad ? 'bad' : ''}">${dl.txt}</span>` : ''), g ? esc(g.title) : ''].filter(Boolean).join(' · ') || 'No date'}</div></div>
+    <span class="pd p${t.prio}" title="priority"></span></div>`;
+}
+function viewTasks() {
+  let h = banners();
+  h += `<div class="card" style="padding:10px"><div class="seg"><button class="${ui.taskView === 'open' ? 'on' : ''}" data-act="taskView" data-v="open">Open</button><button class="${ui.taskView === 'done' ? 'on' : ''}" data-act="taskView" data-v="done">Done</button></div></div>`;
+  const k = todayKey();
+  const sorter = (a, b) => (a.due || '9999').localeCompare(b.due || '9999') || b.prio - a.prio || a.created - b.created;
+  if (ui.taskView === 'done') {
+    const d = S.tasks.filter(t => t.done).sort((a, b) => (b.doneAt || '').localeCompare(a.doneAt || '') || b.created - a.created);
+    return h + `<div class="card">${d.length ? d.slice(0, 200).map(taskRow).join('') : '<div class="empty">No finished tasks yet.</div>'}</div>`;
+  }
+  const open = S.tasks.filter(t => !t.done).sort(sorter);
+  if (!open.length) return h + `<div class="card"><div class="empty"><div class="h3" style="color:var(--ink)">All clear</div><p style="margin-top:6px">No open tasks. Add one with the + button.</p><button class="btn" data-act="add" data-type="task">Add a task</button></div></div>`;
+  const groups = [['Overdue', open.filter(t => t.due && t.due < k), 'bad'], ['Today', open.filter(t => t.due === k), ''], ['Upcoming', open.filter(t => t.due > k), ''], ['No date', open.filter(t => !t.due), '']];
+  for (const [name, arr, cls] of groups) if (arr.length) h += `<div class="card"><div class="sec ${cls}">${name} · ${arr.length}</div>${arr.map(taskRow).join('')}</div>`;
+  return h;
+}
+
+/* ----- Goals ----- */
+function goalBlock(g) {
+  const p = goalPct(g);
+  const dl = g.deadline ? ' · by ' + fmtDay(g.deadline, true) : '';
+  return `<div class="gl" data-act="goalOpen" data-id="${g.id}"><div class="row"><span class="sp" style="overflow-wrap:anywhere">${esc(g.title)}</span>${g.star ? '<span class="star">★</span>' : ''}<span class="mono">${Math.round(p * 100)}%</span></div><div class="bar"><i class="${areaCls(g.area)}" style="width:${(p * 100).toFixed(1)}%"></i></div><div class="sm" style="margin-top:5px">${esc(goalText(g))}${dl}</div></div>`;
+}
+function viewGoals() {
+  let h = banners();
+  const act = activeGoals(), arch = S.goals.filter(g => g.arch);
+  if (!act.length && !arch.length) return h + `<div class="card"><div class="empty"><div class="h3" style="color:var(--ink)">No goals yet</div><p style="margin-top:6px">Track a goal with milestones (steps along a route) or a number (like savings or modules done).</p><button class="btn" data-act="add" data-type="goal">Add a goal</button></div></div>`;
+  const groups = S.areas.map(a => [a.name, act.filter(g => g.area === a.id)]);
+  groups.push(['No area', act.filter(g => !areaOf(g.area))]);
+  for (const [name, arr] of groups) if (arr.length) h += `<div class="card"><div class="lbl">${esc(name)}</div>${arr.sort((a, b) => b.star - a.star).map(goalBlock).join('')}</div>`;
+  if (!act.length) h += `<div class="card"><div class="empty">No active goals.<br><button class="btn" data-act="add" data-type="goal">Add a goal</button></div></div>`;
+  else h += `<button class="btn g full" data-act="add" data-type="goal" style="margin-bottom:12px">+ New goal</button>`;
+  if (arch.length) {
+    h += `<button class="link" data-act="toggleArch" style="display:block;margin:0 auto 8px">${ui.showArch ? 'Hide' : 'Show'} archived (${arch.length})</button>`;
+    if (ui.showArch) h += `<div class="card"><div class="lbl">Archived</div>${arch.map(goalBlock).join('')}</div>`;
+  }
+  return h;
+}
+
+/* ----- Budget ----- */
+function viewBudget() {
+  let h = banners();
+  const tk = todayKey(); if (!ui.month) ui.month = monthKey(tk);
+  const ym = ui.month, [y, mo] = ym.split('-').map(Number), m = monthStats(ym);
+  const over = m.budget > 0 && m.spent > m.budget, p = m.budget > 0 ? m.spent / m.budget : 0;
+  let yr = 0; for (const e of S.expenses) if (e.date.startsWith(String(y)) && !e.out) yr += e.amt;
+  h += `<div class="card"><div class="mnav"><button data-act="month" data-d="-1" aria-label="Previous month">‹</button><div style="text-align:center"><div class="h3">${MONL[mo - 1]} ${y}</div><div class="sm">${y} so far: ${fmtShort(yr)} ₫</div></div><button data-act="month" data-d="1" aria-label="Next month">›</button></div>
+    <div class="row" style="margin-top:10px;align-items:center"><div>${ring(p, over ? '#B93A2E' : THEMES[THEME].ac2, 128, m.budget > 0 ? Math.round(p * 100) + '%' : '—', 'of budget')}</div>
+    <div class="sp"><div class="kv"><span class="mut">Spent</span><b class="amt">${fmtShort(m.spent)} ₫</b></div><div class="kv"><span class="mut">Budget</span><b class="amt">${fmtShort(m.budget)} ₫</b></div>
+    <div class="kv"><span class="mut">${over ? 'Over' : 'Left'}</span><b class="amt ${over ? 'bad' : ''}">${fmtShort(Math.abs(m.left))} ₫</b></div>${m.daysLeft ? `<div class="kv"><span class="mut">Per day</span><b class="amt">${fmtShort(m.perDay)} ₫</b></div>` : ''}</div></div>
+    <div class="btns"><button class="btn g" data-act="budgetEdit">Adjust budget</button><button class="btn" data-act="add" data-type="expense">+ Spending</button></div></div>`;
+  const rows = S.cats.map(c => ({ c, v: m.byCat[c.id] || 0 })).filter(r => r.v > 0 || r.c.limit > 0);
+  const unc = Object.keys(m.byCat).filter(id => !catOf(id)).reduce((s, id) => s + m.byCat[id], 0);
+  if (unc) rows.push({ c: { id: '', name: 'Uncategorised', limit: 0 }, v: unc });
+  if (rows.length) {
+    const mx = Math.max(...rows.map(r => r.v), 1);
+    h += `<div class="card"><div class="lbl">By category</div>` + rows.sort((a, b) => b.v - a.v).map(r => {
+      const lim = r.c.limit, w = lim ? r.v / lim : r.v / mx, ov = lim && r.v > lim;
+      return `<div style="margin-top:10px"><div class="row" style="font-size:14px"><span class="sp ell">${esc(r.c.name)}</span><span class="amt ${ov ? 'bad' : ''}">${fmtShort(r.v)}${lim ? ' / ' + fmtShort(lim) : ''} ₫</span></div><div class="bar"><i class="${ov ? 'over' : 'a2'}" style="width:${(clamp(w) * 100).toFixed(1)}%"></i></div></div>`;
+    }).join('') + '</div>';
+  }
+  const gb = S.goals.filter(g => g.budget > 0 && !g.arch);
+  if (gb.length) h += `<div class="card"><div class="lbl">Goal budgets · all time</div>` + gb.map(g => {
+    const sp = goalSpent(g.id), ov = sp > g.budget;
+    return `<div style="margin-top:10px" data-act="goalOpen" data-id="${g.id}"><div class="row" style="font-size:14px"><span class="sp ell">${esc(g.title)}</span><span class="amt ${ov ? 'bad' : ''}">${fmtShort(sp)} / ${fmtShort(g.budget)} ₫</span></div><div class="bar"><i class="${ov ? 'over' : ''}" style="width:${(clamp(sp / g.budget) * 100).toFixed(1)}%"></i></div></div>`;
+  }).join('') + '</div>';
+  if (m.out > 0) h += `<div class="card"><div class="row"><div class="sp"><div class="lbl">Outside budget</div><div class="sm" style="margin-top:3px">Big or one-off spending kept out of the monthly ring</div></div><b class="amt">${fmtShort(m.out)} ₫</b></div></div>`;
+  const codes = Object.keys(S.settings.rates);
+  h += `<div class="card"><div class="lbl">Converter</div><div class="srow"><input class="in" id="cvA" inputmode="decimal" placeholder="Amount" style="flex:1"><select class="in" id="cvC" style="width:100px">${codes.map(c => `<option>${c}</option>`).join('')}</select></div><div class="sm" id="cvOut" style="margin-top:8px">${codes.length ? '= 0 ₫' : 'Add exchange rates in Settings'}</div></div>`;
+  const ex = S.expenses.filter(e => e.date.startsWith(ym)).sort((a, b) => b.date.localeCompare(a.date) || b.created - a.created);
+  h += `<div class="card"><div class="lbl">Spending</div>`;
+  if (!ex.length) h += `<div class="empty">No spending logged in ${MONL[mo - 1]}.</div>`;
+  let last = '';
+  for (const e of ex) {
+    if (e.date !== last) { h += `<div class="sec" style="margin-top:12px">${fmtDay(e.date)}</div>`; last = e.date; }
+    const c = catOf(e.cat);
+    h += `<div class="xrow" data-act="expEdit" data-id="${e.id}"><div class="sp"><div class="ell">${esc(e.note || (c ? c.name : 'Spending'))}</div><div class="sm">${esc(c ? c.name : 'Uncategorised')}${e.goal && goalOf(e.goal) ? ' · ' + esc(goalOf(e.goal).title) : ''}${e.out ? ' · outside budget' : ''}</div></div><div style="text-align:right"><div class="amt">${fmtVND(e.amt)}</div>${e.oc !== 'VND' ? `<div class="sm">${fmtNum(e.oa)} ${e.oc}</div>` : ''}</div></div>`;
+  }
+  return h + '</div>';
+}
+
+/* ---------- sheets ---------- */
+function openSheet(title, body, opts = {}) {
+  const w = document.createElement('div');
+  w.className = 'sw';
+  w.innerHTML = `<div class="scrim" data-act="sheetClose"></div><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div><div class="sh-head"><h3>${esc(title)}</h3><button class="x" data-act="sheetClose" aria-label="Close">✕</button></div><div class="sh-body">${body}</div></div>`;
+  $('#sheets').appendChild(w);
+  let pushed = false;
+  try { history.pushState({ way: 'sheet', n: sheets.length + 1 }, ''); pushed = true; } catch (e) { /* history blocked */ }
+  const sh = { el: w, pushed, refresh: opts.refresh || null, title };
+  sheets.push(sh);
+  document.body.style.overflow = 'hidden';
+  return sh;
+}
+function topSheet() { return sheets[sheets.length - 1]; }
+function closeSheets(n = 1) {
+  n = Math.min(n, sheets.length); if (n <= 0) return;
+  let hist = 0;
+  for (let i = 0; i < n; i++) { const sh = sheets.pop(); if (sh.pushed) hist++; sh.el.remove(); }
+  if (!sheets.length) document.body.style.overflow = '';
+  if (hist) {
+    const st = history.state;
+    if (st && st.way === 'sheet') { ignorePop++; try { history.go(-hist); } catch (e) { ignorePop--; } }
+  }
+}
+function closeAllSheets() { closeSheets(sheets.length); }
+function refreshSheets() {
+  for (const sh of sheets) if (sh.refresh) {
+    const b = sh.el.querySelector('.sh-body'), top = b.scrollTop;
+    try { const r = sh.refresh(); if (r === null) continue; b.innerHTML = r; b.scrollTop = top; }
+    catch (e) { logDiag('sheet refresh: ' + e.message); }
+  }
+}
+function F(name) { const t = topSheet(); return t ? t.el.querySelector(`[name="${name}"]`) : null; }
+function V(name) { const f = F(name); return f ? f.value : ''; }
+function showErr(msg) { const t = topSheet(); const e = t && t.el.querySelector('.err'); if (e) e.textContent = msg; else toast(msg); }
+function confirmSheet(msg, okLabel, fn, danger = true) {
+  pendingConfirm = fn;
+  openSheet('Please confirm', `<p style="font-size:15px;line-height:1.45">${msg}</p><div class="btns"><button class="btn ${danger ? 'd' : ''}" data-act="confirmOk">${esc(okLabel)}</button><button class="btn g" data-act="sheetClose">Cancel</button></div>`);
+}
+
+/* ---------- form builders ---------- */
+const opt = (v, label, sel) => `<option value="${esc(v)}"${sel ? ' selected' : ''}>${esc(label)}</option>`;
+function areaSelect(cur) { return `<select class="in" name="area">${opt('', 'No area', !cur)}${S.areas.map(a => opt(a.id, a.name, a.id === cur)).join('')}</select>`; }
+function goalSelect(cur) { return `<select class="in" name="goal">${opt('', 'No goal', !cur)}${S.goals.filter(g => !g.arch || g.id === cur).map(g => opt(g.id, g.title, g.id === cur)).join('')}</select>`; }
+function segHTML(group, val, items) {
+  return `<input type="hidden" name="${group}" value="${esc(val)}"><div class="seg">${items.map(([v, l]) => `<button type="button" class="${String(v) === String(val) ? 'on' : ''}" data-act="seg" data-g="${group}" data-v="${esc(v)}">${esc(l)}</button>`).join('')}</div>`;
+}
+function togHTML(name, on, label, hint = '') {
+  return `<div class="tog${on ? ' on' : ''}" data-act="tog" data-n="${name}"><span class="sw2"></span><div class="sp"><div>${esc(label)}</div>${hint ? `<div class="hint" style="margin:0">${esc(hint)}</div>` : ''}</div><input type="hidden" name="${name}" value="${on ? 1 : 0}"></div>`;
+}
+function formTask(t = {}, pre = {}) {
+  const g = t.goal || pre.goal || '', a = t.area || (g && goalOf(g) ? goalOf(g).area : '') || '';
+  return `<div class="fld"><label>Task</label><input class="in" name="title" maxlength="160" value="${esc(t.title || '')}" placeholder="What needs doing?"></div>
+  <div class="fld"><label>Due date</label><input class="in" type="date" name="due" value="${esc(t.due || '')}"><div class="chips" style="margin-top:8px"><button type="button" data-act="setDue" data-v="0">Today</button><button type="button" data-act="setDue" data-v="1">Tomorrow</button><button type="button" data-act="setDue" data-v="7">Next week</button><button type="button" data-act="setDue" data-v="">No date</button></div></div>
+  <div class="fld"><label>Priority</label>${segHTML('prio', t.prio || 2, [[1, 'Low'], [2, 'Normal'], [3, 'High']])}</div>
+  <div class="two fld"><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Area</label>${areaSelect(a)}</div><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Goal</label>${goalSelect(g)}</div></div>
+  <div class="fld"><label>Note</label><textarea class="in" name="note" maxlength="500" placeholder="Optional">${esc(t.note || '')}</textarea></div>
+  <div class="err"></div><div class="btns"><button class="btn" data-act="taskSave" data-id="${t.id || ''}">${t.id ? 'Save' : 'Add task'}</button>${t.id ? `<button class="btn d" data-act="taskDel" data-id="${t.id}">Delete</button>` : ''}</div>`;
+}
+function formExpense(e = {}, pre = {}) {
+  const codes = ['VND', ...Object.keys(S.settings.rates)];
+  const cur = e.oc && codes.includes(e.oc) ? e.oc : 'VND';
+  const amt = e.id ? (e.oc === cur ? e.oa : e.amt) : '';
+  const cat = e.cat && catOf(e.cat) ? e.cat : (S.cats[0] ? S.cats[0].id : '');
+  return `<div class="two fld"><div style="flex:2"><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Amount</label><input class="in" name="amount" inputmode="decimal" value="${esc(amt === '' ? '' : String(amt))}" placeholder="e.g. 65k or 1.2m"></div>
+  <div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Currency</label><select class="in" name="cur">${codes.map(c => opt(c, c, c === cur)).join('')}</select></div></div><div class="hint" id="expPrev">${e.id ? '= ' + fmtVND(e.amt) : 'Tip: 65k = 65,000 · 1.2m = 1,200,000'}</div>
+  <div class="fld"><label>Category</label><input type="hidden" name="cat" value="${esc(cat)}"><div class="chips">${S.cats.map(c => `<button type="button" class="${c.id === cat ? 'on' : ''}" data-act="pick" data-g="cat" data-v="${c.id}">${esc(c.name)}</button>`).join('')}</div></div>
+  <div class="two fld"><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Date</label><input class="in" type="date" name="date" value="${esc(e.date || todayKey())}"></div><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Goal</label>${goalSelect(e.goal || pre.goal || '')}</div></div>
+  <div class="fld"><label>Note</label><input class="in" name="note" maxlength="200" value="${esc(e.note || '')}" placeholder="Optional"></div>
+  ${togHTML('out', !!e.out, 'Outside monthly budget', 'For big or one-off spending; still counts toward a linked goal')}
+  <div class="err"></div><div class="btns"><button class="btn" data-act="expSave" data-id="${e.id || ''}">${e.id ? 'Save' : 'Add spending'}</button>${e.id ? `<button class="btn d" data-act="expDel" data-id="${e.id}">Delete</button>` : ''}</div>`;
+}
+function formGoal(g = {}) {
+  const kind = g.kind || 'ms';
+  return `<div class="fld"><label>Goal</label><input class="in" name="title" maxlength="120" value="${esc(g.title || '')}" placeholder="e.g. Senior PM by Q2 2027"></div>
+  <div class="two fld"><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Area</label>${areaSelect(g.area || (S.areas[0] && !g.id ? S.areas[0].id : ''))}</div><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Target date</label><input class="in" type="date" name="deadline" value="${esc(g.deadline || '')}"></div></div>
+  <div class="fld"><label>Why it matters</label><input class="in" name="why" maxlength="300" value="${esc(g.why || '')}" placeholder="Optional, shown on the focus card"></div>
+  <div class="fld"><label>Track progress by</label>${segHTML('kind', kind, [['ms', 'Milestones'], ['num', 'A number']])}</div>
+  <div id="kMs" class="fld${kind === 'ms' ? '' : ' hidden'}"><label>Milestones, one per line, in order</label><textarea class="in" name="ms" placeholder="Finish course&#10;Lead a launch&#10;Promotion review">${esc((g.ms || []).map(m => m.t).join('\n'))}</textarea><div class="hint">Short names (about 10 letters) show under the route on Today. Tick them off on the goal page.</div></div>
+  <div id="kNum" class="${kind === 'num' ? '' : 'hidden'}"><div class="two fld"><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Now</label><input class="in" name="cur" inputmode="decimal" value="${g.kind === 'num' ? esc(String(g.cur)) : '0'}"></div><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Target</label><input class="in" name="target" inputmode="decimal" value="${g.kind === 'num' && g.target ? esc(String(g.target)) : ''}" placeholder="e.g. 60m"></div></div>
+  <div class="fld"><label>Unit</label><input class="in" name="unit" maxlength="16" value="${esc(g.unit || '')}" placeholder="₫, modules, kg…"></div></div>
+  <div class="fld"><label>Budget for this goal (₫, optional)</label><input class="in" name="budget" inputmode="decimal" value="${g.budget ? esc(String(g.budget)) : ''}" placeholder="e.g. 5m"><div class="hint">Spending linked to this goal is tracked against it.</div></div>
+  ${togHTML('star', !!g.star, 'Star as a focus goal', 'Starred goals rotate on the Today card')}
+  <div class="err"></div><div class="btns"><button class="btn" data-act="goalSave" data-id="${g.id || ''}">${g.id ? 'Save' : 'Add goal'}</button>${g.id ? `<button class="btn g" data-act="goalArch" data-id="${g.id}">${g.arch ? 'Restore' : 'Archive'}</button><button class="btn d" data-act="goalDel" data-id="${g.id}">Delete</button>` : ''}</div>`;
+}
+function formSystem(s = {}, pre = {}) {
+  const days = s.days || [0, 1, 2, 3, 4, 5, 6];
+  const g = s.goal || pre.goal || '';
+  return `<div class="fld"><label>System</label><input class="in" name="title" maxlength="120" value="${esc(s.title || '')}" placeholder="e.g. Morning review"></div>
+  <div class="two fld"><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Area</label>${areaSelect(s.area || (g && goalOf(g) ? goalOf(g).area : ''))}</div><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Goal it feeds</label>${goalSelect(g)}</div></div>
+  <div class="two fld"><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Start time</label><input class="in" type="time" name="time" value="${esc(s.time || '')}"></div><div><label class="sm" style="display:block;font-weight:600;margin-bottom:5px">Minutes</label><input class="in" name="dur" inputmode="numeric" value="${s.dur || 30}"></div></div>
+  <div class="chips" style="margin-top:8px"><button type="button" data-act="clearTime">Anytime (no time)</button></div>
+  <div class="fld"><label>Days</label><div class="chips">${[1, 2, 3, 4, 5, 6, 0].map(d => `<button type="button" class="${days.includes(d) ? 'on' : ''}" data-act="mchip" data-g="days" data-v="${d}">${DOW[d]}</button>`).join('')}</div>
+  <div class="chips" style="margin-top:8px"><button type="button" data-act="daysPreset" data-v="0,1,2,3,4,5,6">Daily</button><button type="button" data-act="daysPreset" data-v="1,2,3,4,5">Weekdays</button><button type="button" data-act="daysPreset" data-v="0,6">Weekends</button></div></div>
+  <div class="fld"><label>Steps, one per line (optional)</label><textarea class="in" name="steps" placeholder="Phone on silent&#10;Pick one task">${esc((s.steps || []).map(x => x.t).join('\n'))}</textarea></div>
+  ${s.id ? togHTML('paused', !!s.paused, 'Paused', 'Hidden from Today until you resume it') : ''}
+  <div class="err"></div><div class="btns"><button class="btn" data-act="sysSave" data-id="${s.id || ''}">${s.id ? 'Save' : 'Add system'}</button>${s.id ? `<button class="btn d" data-act="sysDel" data-id="${s.id}">Delete</button>` : ''}</div>`;
+}
+const ADD_TYPES = [['task', 'Task'], ['expense', 'Spending'], ['goal', 'Goal'], ['system', 'System']];
+function addForm(type, pre) { return type === 'expense' ? formExpense({}, pre) : type === 'goal' ? formGoal({}) : type === 'system' ? formSystem({}, pre) : formTask({}, pre); }
+function openAdd(type, pre = {}) {
+  openSheet('Add', `<div class="seg" id="addSeg">${ADD_TYPES.map(([v, l]) => `<button type="button" class="${v === type ? 'on' : ''}" data-act="addType" data-v="${v}">${l}</button>`).join('')}</div><div id="addForm">${addForm(type, pre)}</div>`);
+}
+
+/* ---------- detail sheets ---------- */
+function goalDetail(id) {
+  const g = goalOf(id); if (!g) return null;
+  const p = goalPct(g);
+  let h = `<div class="row" style="flex-wrap:wrap">${areaChip(g.area)}${g.arch ? '<span class="chip g">Archived</span>' : ''}<div class="sp"></div><button class="link" data-act="goalStar" data-id="${g.id}">${g.star ? '★ Starred' : '☆ Star as focus'}</button></div>`;
+  if (g.why) h += `<p style="margin-top:8px;font-size:14px">${esc(g.why)}</p>`;
+  h += `<div class="group"><div class="row"><div class="lbl sp">Progress</div><span class="mono" style="font-size:20px;color:var(--ac)">${Math.round(p * 100)}%</span></div>`;
+  if (g.kind === 'num') {
+    h += `<div class="bar"><i class="${areaCls(g.area)}" style="width:${(p * 100).toFixed(1)}%"></i></div><div class="sm" style="margin-top:6px">${esc(goalText(g))}</div>
+      <div class="srow"><input class="in" name="numv" inputmode="decimal" placeholder="Amount" style="flex:1"><button class="btn" data-act="numAdd" data-id="${g.id}">Add</button><button class="btn g" data-act="numSet" data-id="${g.id}">Set</button></div><div class="err"></div>`;
+  } else if (g.ms.length) {
+    h += g.ms.map(m => `<div class="li${m.done ? ' dn' : ''}"><button class="ck round${m.done ? ' on' : ''}" data-act="msToggle" data-id="${g.id}" data-m="${m.id}" aria-label="Done"></button><div class="main" data-act="msToggle" data-id="${g.id}" data-m="${m.id}"><div class="t">${esc(m.t)}</div></div></div>`).join('');
+  } else h += `<div class="empty">No milestones yet. Add them with Edit.</div>`;
+  h += `</div>`;
+  if (g.deadline) { const dd = diffDays(todayKey(), g.deadline); h += `<div class="kv" style="margin-top:8px"><span class="mut">Target date</span><b>${fmtDay(g.deadline, true)} · ${dd >= 0 ? dd + ' days left' : (-dd) + ' days past'}</b></div>`; }
+  if (g.budget) { const sp = goalSpent(g.id); h += `<div class="group"><div class="row"><div class="lbl sp">Goal budget</div><span class="amt ${sp > g.budget ? 'bad' : ''}">${fmtShort(sp)} / ${fmtShort(g.budget)} ₫</span></div><div class="bar"><i class="${sp > g.budget ? 'over' : ''}" style="width:${(clamp(sp / g.budget) * 100).toFixed(1)}%"></i></div><div class="sm" style="margin-top:6px">${fmtShort(Math.max(0, g.budget - sp))} ₫ left</div></div>`; }
+  const sys = S.systems.filter(s => s.goal === g.id), k = todayKey();
+  h += `<div class="group"><div class="row"><div class="lbl sp">Systems feeding it</div><button class="link" data-act="add" data-type="system" data-goal="${g.id}">+ Add</button></div>${sys.length ? sys.map(s => sysRow(s, k, false)).join('') : '<div class="sm" style="padding:6px 0">None yet.</div>'}</div>`;
+  const tasks = S.tasks.filter(t => t.goal === g.id && !t.done);
+  h += `<div class="group"><div class="row"><div class="lbl sp">Open tasks</div><button class="link" data-act="add" data-type="task" data-goal="${g.id}">+ Add</button></div>${tasks.length ? tasks.map(taskRow).join('') : '<div class="sm" style="padding:6px 0">None open.</div>'}</div>`;
+  h += `<div class="btns"><button class="btn g" data-act="goalEdit" data-id="${g.id}">Edit goal</button><button class="btn g" data-act="add" data-type="expense" data-goal="${g.id}">+ Spending</button></div>`;
+  return h;
+}
+function sysDetail(id) {
+  const s = byId(S.systems, id); if (!s) return null;
+  const k = todayKey(), done = isDone(s, k), sch = scheduledOn(s, k), e = s.log[k] || { s: [] };
+  let h = `<div class="row" style="flex-wrap:wrap">${areaChip(s.area)}${s.paused ? '<span class="chip g">Paused</span>' : ''}<span class="sm">${daysSummary(s.days)} · ${sysWhen(s)}</span></div>`;
+  if (s.goal && goalOf(s.goal)) h += `<div class="sm" style="margin-top:6px">Feeds: <button class="link" data-act="goalOpen" data-id="${s.goal}">${esc(goalOf(s.goal).title)}</button></div>`;
+  h += `<div class="group"><div class="row"><div class="lbl sp">Today${sch ? '' : ' · not scheduled'}</div><span class="mono" style="color:var(--ac)">${sysStreak(s) ? sysStreak(s) + '-day streak' : 'No streak yet'}</span></div>`;
+  if (s.steps.length) h += s.steps.map(st => { const on = e.s.includes(st.id); return `<div class="li${on ? ' dn' : ''}"><button class="ck${on ? ' on' : ''}" data-act="stepToggle" data-id="${s.id}" data-st="${st.id}" aria-label="Step done"></button><div class="main" data-act="stepToggle" data-id="${s.id}" data-st="${st.id}"><div class="t">${esc(st.t)}</div></div></div>`; }).join('');
+  h += `<div class="btns"><button class="btn${done ? ' g' : ''}" data-act="sysToggle" data-id="${s.id}">${done ? 'Undo · not done' : 'Mark done today'}</button></div>`;
+  let dots = '';
+  for (let i = 13; i >= 0; i--) { const d = addDays(k, -i), sc = s.days.includes(dowOf(d)), dn = isDone(s, d); dots += `<i class="${dn ? 'on' : ''}${!sc && !dn ? ' na' : ''}${i === 0 ? ' today' : ''}" title="${fmtDay(d)}"></i>`; }
+  h += `<div class="lbl" style="margin-top:14px">Last 14 days</div><div class="dots">${dots}</div></div>`;
+  h += `<div class="btns"><button class="btn g" data-act="sysEdit" data-id="${s.id}">Edit system</button></div>`;
+  return h;
+}
+
+/* ---------- settings ---------- */
+function settingsBody() {
+  const c = S.meta.changes, lb = S.meta.lastBackup;
+  const diag = (getDiag().length ? getDiag() : memDiag).slice(-15).reverse();
+  const n = now();
+  const pv = `${keyOf(n)}T${pad(n.getHours())}:${pad(n.getMinutes())}`;
+  return `<div class="group" id="syncBox">${syncInner()}</div>
+  <div class="group"><div class="lbl">Backup</div>
+    <p class="sm" style="margin-top:6px">${c ? `${c} change${c > 1 ? 's' : ''} since your last backup.` : 'Everything is backed up.'} ${lb ? 'Last backup: ' + fmtDay(keyOf(new Date(lb)), true) + '.' : 'No backup yet.'}</p>
+    <div class="btns"><button class="btn" data-act="export">Export</button><button class="btn g" data-act="share">Share</button><button class="btn g" data-act="imp">Import</button></div>
+    <div class="btns" style="margin-top:8px"><button class="btn g" data-act="csv" data-v="exp">Spending CSV</button><button class="btn g" data-act="csv" data-v="task">Tasks CSV</button></div></div>
+  <div class="group"><div class="lbl">Theme</div><p class="sm" style="margin:6px 0 8px">Now showing: ${THEME}. Random picks a new one each time you open the tool.</p>
+    <div class="chips">${['random', ...THEME_NAMES].map(t => `<button type="button" class="${S.settings.theme === t ? 'on' : ''}" data-act="setTheme" data-v="${t}">${t[0].toUpperCase() + t.slice(1)}</button>`).join('')}</div>
+    <div class="fld"><label>Watch view</label><div class="seg">${[['auto', 'Auto'], ['on', 'Watch'], ['off', 'Phone']].map(([v, l]) => `<button type="button" class="${S.settings.watch === v ? 'on' : ''}" data-act="watchMode" data-v="${v}">${l}</button>`).join('')}</div><div class="hint">Auto shows the watch view on small round screens. This setting stays on this device.</div></div>
+    ${togHTML('lite', S.settings.lite, 'Lite mode', 'Turns off all animation. Switches on by itself after an unexpected close.').replace('data-act="tog"', 'data-act="liteToggle"')}</div>
+  <div class="group"><div class="lbl">Life areas</div><div id="areaRows">${S.areas.map(a => `<div class="srow" data-row="${a.id}"><input class="in" name="area-${a.id}" maxlength="40" value="${esc(a.name)}" style="flex:1"><button class="mini" data-act="rowDel" aria-label="Remove">✕</button></div>`).join('')}</div>
+    <div class="btns"><button class="btn g" data-act="areaAdd">+ Area</button><button class="btn" data-act="areasSave">Save areas</button></div></div>
+  <div class="group"><div class="lbl">Budget</div>
+    <div class="fld"><label>Monthly budget (₫)</label><input class="in" name="mbudget" inputmode="decimal" value="${S.settings.budget}"><div class="hint">You can type 10m or 10000000.</div></div>
+    <div class="fld"><label>Categories · name and optional monthly limit</label><div id="catRows">${S.cats.map(ct => catRow(ct)).join('')}</div></div>
+    <div class="btns"><button class="btn g" data-act="catAdd">+ Category</button></div>
+    <div class="fld"><label>Exchange rates · ₫ per 1 unit</label><div id="rateRows">${Object.entries(S.settings.rates).map(([k, v]) => rateRow(k, v)).join('')}</div></div>
+    <div class="btns"><button class="btn g" data-act="rateAdd">+ Currency</button><button class="btn" data-act="budgetSave">Save budget</button></div><div class="err" id="budErr"></div></div>
+  <div class="group"><div class="lbl">Preview time</div><p class="sm" style="margin-top:6px">Pretend it is another date and time, to test how Today looks.</p>
+    <div class="srow"><input class="in" type="datetime-local" name="pvt" value="${pv}" style="flex:1"><button class="btn" data-act="previewSet">Set</button></div>${S.meta.preview ? '<div class="btns"><button class="btn g" data-act="previewOff">Back to real time</button></div>' : ''}</div>
+  <div class="group"><div class="lbl">Example data</div><p class="sm" style="margin-top:6px">Adds sample goals, systems, tasks and spending. Loading twice won't duplicate them.</p><div class="btns"><button class="btn g" data-act="examples">Load examples</button><button class="btn g" data-act="examplesDel">Remove examples</button></div></div>
+  <div class="group"><div class="lbl">Diagnostics</div><pre class="diag">${diag.length ? diag.map(d => new Date(d.t).toISOString().slice(0, 16).replace('T', ' ') + '  ' + esc(d.m)).join('\n') : 'No errors logged.'}</pre>
+    <div class="btns"><button class="btn g" data-act="copyReport">Copy report</button><button class="btn g" data-act="diagClear">Clear log</button></div></div>
+  <div class="group"><div class="lbl">Danger zone</div><div class="btns"><button class="btn d" data-act="eraseAll">Erase all data</button></div></div>
+  <p class="sm" style="text-align:center;margin-top:14px">The Way · v${APP_V} · works offline, data stays on this phone</p>`;
+}
+function catRow(c) { return `<div class="srow" data-row="${c.id}"><input class="in" name="cat-${c.id}" maxlength="40" value="${esc(c.name)}" style="flex:2"><input class="in" name="lim-${c.id}" inputmode="decimal" value="${c.limit || ''}" placeholder="no limit" style="flex:1.2"><button class="mini" data-act="rowDel" aria-label="Remove">✕</button></div>`; }
+function rateRow(k, v) { const id = 'r' + Math.random().toString(36).slice(2, 7); return `<div class="srow" data-row="${id}"><input class="in" name="rc-${id}" maxlength="3" value="${esc(k)}" placeholder="USD" style="flex:1;text-transform:uppercase"><input class="in" name="rv-${id}" inputmode="decimal" value="${v}" placeholder="25400" style="flex:1.6"><button class="mini" data-act="rowDel" aria-label="Remove">✕</button></div>`; }
+function openSettings() { openSheet('Settings', settingsBody(), { refresh: () => null }); }
+function rebuildSettings() { const sh = sheets.find(x => x.title === 'Settings'); if (sh) sh.el.querySelector('.sh-body').innerHTML = settingsBody(); }
+
+/* ---------- import / export ---------- */
+function stamp() { const d = new Date(); return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + '-' + pad(d.getHours()) + pad(d.getMinutes()); }
+function backupJSON() { return JSON.stringify({ app: APP_ID, v: APP_V, exported: new Date().toISOString(), data: S }, null, 1); }
+function markBackedUp() { S.meta.changes = 0; S.meta.lastBackup = Date.now(); save(); render(); rebuildSettings(); }
+function download(name, text, type) {
+  const blob = new Blob([text], { type });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = name; a.rel = 'noopener';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+function showText(title, text) {
+  openSheet(title, `<p class="sm">Downloading didn't work here. Copy this text and keep it somewhere safe; you can paste it into a .json file to import later.</p><textarea class="in" name="copytext" style="min-height:220px;font:12px var(--mono);margin-top:10px" readonly>${esc(text)}</textarea><div class="btns"><button class="btn" data-act="copyText">Copy</button></div>`);
+}
+function doExport() {
+  const txt = backupJSON();
+  try { download(`the-way-backup-${stamp()}.json`, txt, 'application/json'); markBackedUp(); toast('Backup downloaded'); }
+  catch (e) { logDiag('export: ' + e.message); showText('Backup text', txt); markBackedUp(); }
+}
+async function doShare() {
+  const txt = backupJSON(), name = `the-way-backup-${stamp()}.json`;
+  try {
+    const file = new File([txt], name, { type: 'application/json' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], title: 'The Way backup' });
+      markBackedUp(); toast('Backup shared'); return;
+    }
+  } catch (e) { if (e && e.name === 'AbortError') return; logDiag('share: ' + (e && e.message)); }
+  toast('Sharing isn’t available here, so downloading instead'); doExport();
+}
+async function copyText(t) {
+  try { await navigator.clipboard.writeText(t); toast('Copied'); return; } catch (e) { /* fallback */ }
+  const ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); toast('Copied'); } catch (e) { toast('Copy failed; select the text manually'); }
+  ta.remove();
+}
+function csvCell(v) { const s = String(v == null ? '' : v); return /[",\n\r]/.test(s) || /^[=+\-@]/.test(s) ? '"' + (/^[=+\-@]/.test(s) ? "'" : '') + s.replace(/"/g, '""') + '"' : s; }
+function doCSV(kind) {
+  let rows;
+  if (kind === 'task') {
+    rows = [['title', 'due', 'priority', 'done', 'done_on', 'area', 'goal', 'note']].concat(S.tasks.map(t => [t.title, t.due, ['', 'low', 'normal', 'high'][t.prio], t.done ? 'yes' : 'no', t.doneAt, areaOf(t.area) ? areaOf(t.area).name : '', goalOf(t.goal) ? goalOf(t.goal).title : '', t.note]));
+  } else {
+    rows = [['date', 'amount_vnd', 'original_amount', 'currency', 'category', 'goal', 'outside_budget', 'note']].concat([...S.expenses].sort((a, b) => a.date.localeCompare(b.date)).map(e => [e.date, e.amt, e.oa, e.oc, catOf(e.cat) ? catOf(e.cat).name : '', goalOf(e.goal) ? goalOf(e.goal).title : '', e.out ? 'yes' : 'no', e.note]));
+  }
+  const txt = '﻿' + rows.map(r => r.map(csvCell).join(',')).join('\r\n');
+  try { download(`the-way-${kind === 'task' ? 'tasks' : 'spending'}-${stamp()}.csv`, txt, 'text/csv'); toast('CSV downloaded'); }
+  catch (e) { showText('CSV text', txt); }
+}
+function counts(d) { return `${d.goals.length} goals, ${d.systems.length} systems, ${d.tasks.length} tasks, ${d.expenses.length} spending entries`; }
+function handleImportText(text) {
+  if (text.length > 20e6) return importFail('This file is too large to be a backup from The Way.');
+  let obj;
+  try { obj = JSON.parse(text); } catch (e) { return importFail('This file isn’t valid JSON, so it can’t be imported. Nothing was changed.'); }
+  if (!isObj(obj) || obj.app !== APP_ID || !isObj(obj.data)) return importFail('This file is not a backup from The Way (it may belong to another tool). Nothing was changed.');
+  const data = sanitizeState(obj.data);
+  pendingImport = data;
+  const nw = k => data[k].filter(x => !S[k].some(y => y.id === x.id)).length;
+  const exp = typeof obj.exported === 'string' && !isNaN(Date.parse(obj.exported)) ? fmtDay(keyOf(new Date(obj.exported)), true) : 'unknown date';
+  openSheet('Import backup', `<p style="font-size:15px">Backup from <b>${esc(exp)}</b> contains ${counts(data)}.</p>
+    <div class="group"><div class="lbl">Merge</div><p class="sm" style="margin-top:6px">Adds what's new and keeps everything you have, updating items that were changed more recently in the backup: ${nw('goals')} goals, ${nw('systems')} systems, ${nw('tasks')} tasks, ${nw('expenses')} spending entries are new.</p><div class="btns"><button class="btn" data-act="impMerge">Merge</button></div></div>
+    <div class="group"><div class="lbl">Replace</div><p class="sm" style="margin-top:6px">Replaces everything on this phone with the backup. Current data (${counts(S)}) will be gone${SC.on ? ', on your other synced devices too' : ''}.</p><div class="btns"><button class="btn d" data-act="impReplace">Replace all</button></div></div>`);
+}
+function importFail(msg) { openSheet('Can’t import', `<p style="font-size:15px">${esc(msg)}</p><div class="btns"><button class="btn g" data-act="sheetClose">OK</button></div>`); }
+function mergeData(data, upd) {
+  let added = 0, updated = 0;
+  for (const k of ['goals', 'systems', 'tasks', 'expenses', 'areas', 'cats']) {
+    const at = new Map(S[k].map((x, i) => [x.id, i]));
+    for (const x of data[k]) {
+      if (!at.has(x.id)) { S[k].push(x); added++; }
+      else if (upd && (x.u || 0) > (S[k][at.get(x.id)].u || 0)) { S[k][at.get(x.id)] = x; updated++; }
+    }
+  }
+  for (const [c, v] of Object.entries(data.settings.rates)) if (!(c in S.settings.rates)) S.settings.rates[c] = v;
+  return upd ? { added, updated } : added;
+}
+
+/* ---------- examples ---------- */
+function loadExamples() {
+  const ex = sanitizeState({ ...exampleData(todayKey(), addDays), areas: S.areas, cats: S.cats });
+  const s1 = ex.systems.find(s => s.id === 'ex-s1'); if (s1) setDone(s1, todayKey(), 1);
+  const n = mergeData(ex); S.meta.welcomed = true;
+  if (!S.areas.some(a => a.id === 'a1')) S.areas.unshift({ ...DEF_AREAS[0] });
+  if (!S.areas.some(a => a.id === 'a2')) S.areas.push({ ...DEF_AREAS[1] });
+  if (n) S.meta.exNote = true;
+  return n;
+}
+const hasExamples = () => ['goals', 'systems', 'tasks', 'expenses'].some(k => S[k].some(x => x.id.startsWith('ex-')));
+
+/* ---------- actions ---------- */
+const A = {
+  tab(el) { ui.tab = el.dataset.tab; if (ui.tab === 'budget') ui.month = monthKey(todayKey()); render(); window.scrollTo(0, 0); },
+  settings() { openSettings(); },
+  sheetClose() { closeSheets(1); },
+  retry() { render(); },
+  add(el) { openAdd(el.dataset.type || ({ systems: 'system', goals: 'goal', budget: 'expense' }[ui.tab] || 'task'), { goal: el.dataset.goal || '' }); },
+  addType(el) {
+    const t = topSheet(); if (!t) return;
+    t.el.querySelectorAll('#addSeg button').forEach(b => b.classList.toggle('on', b === el));
+    t.el.querySelector('#addForm').innerHTML = addForm(el.dataset.v, {});
+  },
+  welcomeDone() { S.meta.welcomed = true; commit(); },
+  examples() { const n = loadExamples(); commit(n ? 'Examples added' : 'Examples are already here'); rebuildSettings(); },
+  exNoteOff() { S.meta.exNote = false; save(); render(); },
+  examplesDel() {
+    confirmSheet('Remove all example goals, systems, tasks and spending? Your own items are kept.', 'Remove examples', () => {
+      for (const k of ['goals', 'systems', 'tasks', 'expenses']) S[k] = S[k].filter(x => !x.id.startsWith('ex-'));
+      S.meta.exNote = false; if (S.meta.focus.startsWith('ex-')) S.meta.focus = '';
+      closeSheets(1); commit('Examples removed'); rebuildSettings();
+    }, false);
+  },
+  focusNext() {
+    const st = activeGoals().filter(g => g.star), pool = st.length ? st : activeGoals();
+    if (pool.length < 2) { const g = focusGoal(); if (g) A.goalOpen({ dataset: { id: g.id } }); return; }
+    const cur = focusGoal(), i = pool.findIndex(g => g.id === (cur && cur.id));
+    S.meta.focus = pool[(i + 1) % pool.length].id; save(); render();
+  },
+  /* now / next */
+  nowDone() {
+    const I = nowInfo(); if (!I.cur) return render();
+    setDone(I.cur.s, I.k, 1);
+    S.meta.manual = { date: I.k, idx: I.i + 1 };
+    commit(I.next ? 'Done · next: ' + I.next.s.title : 'Done · that was the last block');
+  },
+  nowStart() { const I = nowInfo(); if (!I.next) return render(); S.meta.manual = { date: I.k, idx: I.nextIdx }; commit(); },
+  nowClock() { S.meta.manual = null; commit(); },
+  /* systems */
+  sysOpen(el) { const id = el.dataset.id; if (!byId(S.systems, id)) return; const s = byId(S.systems, id); openSheet(s.title, sysDetail(id), { refresh: () => sysDetail(id) }); },
+  sysToggle(el) { const s = byId(S.systems, el.dataset.id); if (!s) return; const k = todayKey(); const d = !isDone(s, k); setDone(s, k, d); commit(d ? 'Done · ' + s.title : ''); },
+  stepToggle(el) {
+    const s = byId(S.systems, el.dataset.id); if (!s) return; const k = todayKey();
+    const e = s.log[k] || { d: 0, s: [] }; const st = el.dataset.st;
+    e.s = e.s.includes(st) ? e.s.filter(x => x !== st) : [...e.s, st]; s.log[k] = e;
+    let msg = '';
+    if (!e.d && s.steps.length && s.steps.every(x => e.s.includes(x.id))) { e.d = 1; msg = 'All steps done · ' + s.title; }
+    if (!e.d && !e.s.length) delete s.log[k];
+    commit(msg);
+  },
+  sysEdit(el) { const s = byId(S.systems, el.dataset.id); if (s) openSheet('Edit system', formSystem(s)); },
+  sysSave(el) {
+    const id = el.dataset.id, title = V('title').trim();
+    if (!title) return showErr('Please give the system a name.');
+    const days = [...topSheet().el.querySelectorAll('[data-g="days"].on')].map(b => Number(b.dataset.v));
+    if (!days.length) return showErr('Pick at least one day.');
+    const durRaw = V('dur').trim(); const dur = durRaw === '' ? 30 : Math.round(Number(durRaw));
+    if (!Number.isFinite(dur) || dur < 5 || dur > 720) return showErr('Minutes should be between 5 and 720.');
+    const time = sTime(V('time'));
+    const old = byId(S.systems, id);
+    const lines = V('steps').split('\n').map(x => x.trim()).filter(Boolean).slice(0, 30).map(x => x.slice(0, 100));
+    const steps = lines.map(t => { const o = old && old.steps.find(x => x.t === t); return { id: o ? o.id : uid('st'), t }; });
+    const goal = goalOf(V('goal')) ? V('goal') : '';
+    let area = areaOf(V('area')) ? V('area') : '';
+    if (!area && goal) area = goalOf(goal).area;
+    const rec = { title, area, goal, time, dur, days: days.sort(), steps, paused: V('paused') === '1' };
+    if (old) Object.assign(old, rec); else S.systems.push(sSystem({ ...rec, id: uid('s'), log: {}, created: Date.now() }));
+    closeSheets(1); commit(old ? 'Saved' : 'System added');
+  },
+  sysDel(el) {
+    const s = byId(S.systems, el.dataset.id); if (!s) return;
+    confirmSheet(`Delete the system “${esc(s.title)}” and its history?`, 'Delete', () => { S.systems = S.systems.filter(x => x.id !== s.id); closeAllSheets(); commit('System deleted'); });
+  },
+  /* tasks */
+  taskView(el) { ui.taskView = el.dataset.v; render(); },
+  taskToggle(el) { const t = byId(S.tasks, el.dataset.id); if (!t) return; t.done = !t.done; t.doneAt = t.done ? todayKey() : ''; commit(t.done ? 'Done · ' + t.title : 'Reopened'); },
+  taskEdit(el) { const t = byId(S.tasks, el.dataset.id); if (t) openSheet('Edit task', formTask(t)); },
+  taskSave(el) {
+    const id = el.dataset.id, title = V('title').trim();
+    if (!title) return showErr('Please write what the task is.');
+    const dueRaw = V('due'); const due = sDate(dueRaw);
+    if (dueRaw && !due) return showErr('That date doesn’t look right.');
+    const goal = goalOf(V('goal')) ? V('goal') : '';
+    let area = areaOf(V('area')) ? V('area') : ''; if (!area && goal) area = goalOf(goal).area;
+    const rec = { title: title.slice(0, 160), due, prio: Math.round(sNum(V('prio'), 1, 3, 2)), area, goal, note: V('note').slice(0, 500) };
+    const old = byId(S.tasks, id);
+    if (old) Object.assign(old, rec); else S.tasks.push({ ...rec, id: uid('t'), done: false, doneAt: '', created: Date.now() });
+    closeSheets(1); commit(old ? 'Saved' : 'Task added');
+  },
+  taskDel(el) { const t = byId(S.tasks, el.dataset.id); if (!t) return; confirmSheet(`Delete the task “${esc(t.title)}”?`, 'Delete', () => { S.tasks = S.tasks.filter(x => x.id !== t.id); closeAllSheets(); commit('Task deleted'); }); },
+  setDue(el) { const f = F('due'); if (f) f.value = el.dataset.v === '' ? '' : addDays(todayKey(), Number(el.dataset.v)); },
+  /* goals */
+  goalOpen(el) { const id = el.dataset.id; const g = goalOf(id); if (!g) return; openSheet(g.title, goalDetail(id), { refresh: () => goalDetail(id) }); },
+  goalEdit(el) { const g = goalOf(el.dataset.id); if (g) openSheet('Edit goal', formGoal(g)); },
+  goalStar(el) { const g = goalOf(el.dataset.id); if (!g) return; g.star = !g.star; if (g.star) S.meta.focus = g.id; commit(g.star ? 'Starred as a focus goal' : 'Unstarred'); },
+  goalSave(el) {
+    const id = el.dataset.id, title = V('title').trim();
+    if (!title) return showErr('Please name the goal.');
+    const kind = V('kind') === 'num' ? 'num' : 'ms';
+    const old = goalOf(id);
+    const rec = { title: title.slice(0, 120), area: areaOf(V('area')) ? V('area') : '', why: V('why').slice(0, 300), deadline: sDate(V('deadline')), kind, star: V('star') === '1' };
+    if (V('deadline') && !rec.deadline) return showErr('That target date doesn’t look right.');
+    if (kind === 'num') {
+      const cur = V('cur').trim() === '' ? 0 : parseAmt(V('cur')), tg = parseAmt(V('target'));
+      if (!(tg > 0)) return showErr('Add a target number, e.g. 60m or 12.');
+      if (!Number.isFinite(cur)) return showErr('“Now” should be a number.');
+      Object.assign(rec, { cur, target: tg, unit: V('unit').trim().slice(0, 16) });
+    } else {
+      const lines = V('ms').split('\n').map(x => x.trim()).filter(Boolean).slice(0, 50).map(x => x.slice(0, 80));
+      rec.ms = lines.map(t => { const o = old && old.ms.find(m => m.t === t); return o ? { ...o } : { id: uid('m'), t, done: false }; });
+    }
+    const bRaw = V('budget').trim(); const b = bRaw === '' ? 0 : parseAmt(bRaw);
+    if (!Number.isFinite(b)) return showErr('Goal budget should be an amount, e.g. 5m.');
+    rec.budget = Math.round(b);
+    if (old) { Object.assign(old, rec, { updated: Date.now() }); if (rec.star && !S.meta.focus) S.meta.focus = old.id; }
+    else { const g = sGoal({ ...rec, id: uid('g'), created: Date.now(), updated: Date.now() }); S.goals.push(g); if (g.star || activeGoals().length === 1) S.meta.focus = g.id; }
+    S.meta.welcomed = true;
+    closeSheets(1); commit(old ? 'Saved' : 'Goal added');
+  },
+  goalArch(el) { const g = goalOf(el.dataset.id); if (!g) return; g.arch = !g.arch; if (g.arch) g.star = false; closeAllSheets(); commit(g.arch ? 'Goal archived' : 'Goal restored'); },
+  goalDel(el) {
+    const g = goalOf(el.dataset.id); if (!g) return;
+    confirmSheet(`Delete the goal “${esc(g.title)}”? Linked systems, tasks and spending are kept but unlinked.`, 'Delete', () => {
+      S.goals = S.goals.filter(x => x.id !== g.id);
+      for (const k of ['systems', 'tasks', 'expenses']) for (const x of S[k]) if (x.goal === g.id) x.goal = '';
+      if (S.meta.focus === g.id) S.meta.focus = '';
+      closeAllSheets(); commit('Goal deleted');
+    });
+  },
+  toggleArch() { ui.showArch = !ui.showArch; render(); },
+  msToggle(el) { const g = goalOf(el.dataset.id); if (!g) return; const m = g.ms.find(x => x.id === el.dataset.m); if (!m) return; m.done = !m.done; g.updated = Date.now(); commit(m.done && g.ms.every(x => x.done) ? 'Every milestone done. Well walked.' : ''); },
+  numAdd(el) { numChange(el, true); },
+  numSet(el) { numChange(el, false); },
+  /* budget */
+  month(el) { const [y, m] = ui.month.split('-').map(Number); const d = new Date(y, m - 1 + Number(el.dataset.d), 1); ui.month = d.getFullYear() + '-' + pad(d.getMonth() + 1); render(); },
+  expEdit(el) { const e = byId(S.expenses, el.dataset.id); if (e) openSheet('Edit spending', formExpense(e)); },
+  expSave(el) {
+    const id = el.dataset.id, cur = V('cur'), a = parseAmt(V('amount'));
+    if (!(a > 0)) return showErr('Enter an amount, e.g. 65000 or 65k.');
+    const rate = cur === 'VND' ? 1 : S.settings.rates[cur];
+    if (!rate) return showErr('No exchange rate for ' + cur + '. Add it in Settings.');
+    const amt = Math.round(a * rate);
+    if (amt > 1e13) return showErr('That amount is too large.');
+    const date = sDate(V('date')); if (!date) return showErr('Please pick a date.');
+    const rec = { amt, oa: a, oc: cur, cat: catOf(V('cat')) ? V('cat') : '', goal: goalOf(V('goal')) ? V('goal') : '', note: V('note').slice(0, 200), out: V('out') === '1', date };
+    const old = byId(S.expenses, id);
+    if (old) Object.assign(old, rec); else S.expenses.push({ ...rec, id: uid('e'), created: Date.now() });
+    if (ui.tab === 'budget') ui.month = monthKey(date);
+    closeSheets(1); commit(old ? 'Saved' : 'Added ' + fmtVND(amt));
+  },
+  expDel(el) { const e = byId(S.expenses, el.dataset.id); if (!e) return; confirmSheet(`Delete this spending of ${fmtVND(e.amt)}?`, 'Delete', () => { S.expenses = S.expenses.filter(x => x.id !== e.id); closeAllSheets(); commit('Deleted'); }); },
+  budgetEdit() {
+    openSheet('Adjust budget', `<div class="fld"><label>Monthly budget (₫)</label><input class="in" name="mbudget" inputmode="decimal" value="${S.settings.budget}"><div class="hint">You can type 10m or 10000000.</div></div>
+      <div class="fld"><label>Category limits per month (optional)</label>${S.cats.map(c => `<div class="srow"><span class="sp ell">${esc(c.name)}</span><input class="in" name="lim-${c.id}" inputmode="decimal" value="${c.limit || ''}" placeholder="no limit" style="width:130px;flex:none"></div>`).join('')}</div>
+      <p class="sm" style="margin-top:10px">Goal budgets are set on each goal (Goals › open › Edit).</p>
+      <div class="err"></div><div class="btns"><button class="btn" data-act="budgetQuickSave">Save</button></div>`);
+  },
+  budgetQuickSave() {
+    const b = parseAmt(V('mbudget')); if (!Number.isFinite(b)) return showErr('Monthly budget should be an amount, e.g. 10m.');
+    const lims = {};
+    for (const c of S.cats) { const r = V('lim-' + c.id).trim(); const v = r === '' ? 0 : parseAmt(r); if (!Number.isFinite(v)) return showErr('Check the limit for ' + c.name + '.'); lims[c.id] = Math.round(v); }
+    S.settings.budget = Math.round(b); for (const c of S.cats) c.limit = lims[c.id];
+    closeSheets(1); commit('Budget saved');
+  },
+  pick(el) {
+    const t = topSheet(); if (!t) return; const g = el.dataset.g;
+    t.el.querySelectorAll(`[data-act="pick"][data-g="${g}"]`).forEach(b => b.classList.toggle('on', b === el));
+    const f = F(g); if (f) f.value = el.dataset.v;
+  },
+  /* generic form controls */
+  seg(el) {
+    const g = el.dataset.g, box = el.parentElement;
+    box.querySelectorAll('button').forEach(b => b.classList.toggle('on', b === el));
+    const f = F(g); if (f) f.value = el.dataset.v;
+    if (g === 'kind') { const t = topSheet().el; t.querySelector('#kMs').classList.toggle('hidden', el.dataset.v !== 'ms'); t.querySelector('#kNum').classList.toggle('hidden', el.dataset.v !== 'num'); }
+  },
+  tog(el) { const on = !el.classList.contains('on'); el.classList.toggle('on', on); const f = el.querySelector('input'); if (f) f.value = on ? 1 : 0; },
+  mchip(el) { el.classList.toggle('on'); },
+  daysPreset(el) { const v = el.dataset.v.split(',').map(Number); topSheet().el.querySelectorAll('[data-g="days"]').forEach(b => b.classList.toggle('on', v.includes(Number(b.dataset.v)))); },
+  clearTime() { const f = F('time'); if (f) f.value = ''; },
+  confirmOk() { const fn = pendingConfirm; pendingConfirm = null; if (fn) fn(); else closeSheets(1); },
+  /* settings */
+  export() { doExport(); },
+  share() { doShare(); },
+  imp() { const f = $('#impFile'); f.value = ''; f.click(); },
+  impMerge() {
+    if (!pendingImport) return; const r = mergeData(pendingImport, true); pendingImport = null; S.meta.welcomed = true; closeAllSheets();
+    commit(r.added || r.updated ? `Merged · ${r.added} new, ${r.updated} updated` : 'Nothing new to add');
+  },
+  impReplace() {
+    if (!pendingImport) return;
+    confirmSheet('Replace everything on this phone with the backup? This can’t be undone.', 'Replace all', () => {
+      const d = pendingImport; pendingImport = null;
+      d.meta.preview = 0; d.meta.manual = null; d.meta.welcomed = true; d.meta.changes = 0; d.meta.lastBackup = Date.now();
+      const old = idsOf(S); d.del = { ...S.del, ...d.del }; d.settings.watch = S.settings.watch;
+      S = d; touchAll(old); markDirty(); pickTheme(); save(); if (SC.on) schedSync(300);
+      closeAllSheets(); render(); toast('Backup restored');
+    });
+  },
+  csv(el) { doCSV(el.dataset.v); },
+  setTheme(el) { S.settings.theme = el.dataset.v; pickTheme(); save(); render(); rebuildSettings(); },
+  liteToggle() { S.settings.lite = !S.settings.lite; save(); render(); rebuildSettings(); toast(S.settings.lite ? 'Lite mode on' : 'Lite mode off'); },
+  rowDel(el) { const r = el.closest('.srow'); const box = r.parentElement; if (box.id !== 'rateRows' && box.children.length <= 1) return toast('Keep at least one'); r.remove(); },
+  areaAdd() { const id = uid('a'); $('#areaRows').insertAdjacentHTML('beforeend', `<div class="srow" data-row="${id}"><input class="in" name="area-${id}" maxlength="40" placeholder="New area" style="flex:1"><button class="mini" data-act="rowDel" aria-label="Remove">✕</button></div>`); },
+  areasSave() {
+    const rows = [...document.querySelectorAll('#areaRows .srow')];
+    const list = rows.map(r => ({ id: r.dataset.row, name: r.querySelector('input').value.trim().slice(0, 40) })).filter(a => a.name);
+    if (!list.length) return toast('Keep at least one area');
+    S.areas = list; commit('Areas saved'); rebuildSettings();
+  },
+  catAdd() { $('#catRows').insertAdjacentHTML('beforeend', catRow({ id: uid('c'), name: '', limit: 0 })); },
+  rateAdd() { $('#rateRows').insertAdjacentHTML('beforeend', rateRow('', '')); },
+  budgetSave() {
+    const err = m => { const e = $('#budErr'); if (e) e.textContent = m; };
+    const b = parseAmt(V('mbudget')); if (!Number.isFinite(b)) return err('Monthly budget should be an amount, e.g. 10m.');
+    const cats = [];
+    for (const r of document.querySelectorAll('#catRows .srow')) {
+      const id = r.dataset.row, name = (V('cat-' + id) || '').trim().slice(0, 40); if (!name) continue;
+      const lr = (V('lim-' + id) || '').trim(), lim = lr === '' ? 0 : parseAmt(lr);
+      if (!Number.isFinite(lim)) return err('Check the limit for ' + name + '.');
+      cats.push({ id, name, limit: Math.round(lim) });
+    }
+    if (!cats.length) return err('Keep at least one category.');
+    const rates = {};
+    for (const r of document.querySelectorAll('#rateRows .srow')) {
+      const id = r.dataset.row, code = (V('rc-' + id) || '').trim().toUpperCase(), vr = (V('rv-' + id) || '').trim();
+      if (!code && !vr) continue;
+      if (!/^[A-Z]{3}$/.test(code) || code === 'VND') return err('Currency codes are 3 letters, like USD (not VND).');
+      const v = parseAmt(vr); if (!(v > 0)) return err('Enter a rate for ' + code + ', in ₫ per 1 ' + code + '.');
+      rates[code] = v;
+    }
+    S.settings.budget = Math.round(b); S.cats = cats; S.settings.rates = rates;
+    commit('Budget settings saved'); rebuildSettings();
+  },
+  previewSet() {
+    const v = V('pvt'); const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(v);
+    if (!m) return toast('Pick a date and time');
+    const t = new Date(+m[1], +m[2] - 1, +m[3], +m[4], +m[5]).getTime();
+    S.meta.preview = t - Date.now(); S.meta.manual = null; lastPhase = ''; save(); render(); rebuildSettings(); toast('Preview time on');
+  },
+  previewOff() { S.meta.preview = 0; S.meta.manual = null; lastPhase = ''; save(); render(); rebuildSettings(); toast('Back to real time'); },
+  copyReport() {
+    const d = (getDiag().length ? getDiag() : memDiag);
+    const rep = [`The Way v${APP_V}`, 'Time: ' + new Date().toISOString(), 'Agent: ' + navigator.userAgent, 'Storage: ' + (storageOK ? 'ok' : 'blocked'), 'Theme: ' + THEME + ' · Lite: ' + S.settings.lite, 'Data: ' + counts(S), 'Size: ' + JSON.stringify(S).length + ' chars', '', ...d.map(x => new Date(x.t).toISOString() + '  ' + x.m)].join('\n');
+    copyText(rep);
+  },
+  copyText() { copyText(V('copytext')); },
+  diagClear() { lsDel(LS_DIAG); memDiag.length = 0; rebuildSettings(); toast('Log cleared'); },
+  /* cloud sync */
+  syncOpen() { if (!sheets.some(s => s.title === 'Settings')) openSettings(); },
+  syncSrvShow() { const f = $('#srvFld'); if (f) { f.classList.remove('hidden'); const i = f.querySelector('input'); if (i) i.focus(); } },
+  async syncConnect(el) {
+    const pin = V('spin').trim(), srv = V('ssrv').trim().replace(/\/+$/, '');
+    const err = m => { const e = $('#syncErr'); if (e) e.textContent = m; };
+    if (!/^\d{4,8}$/.test(pin)) return err('Enter your 4-digit PIN.');
+    if (srv && !/^https?:\/\/[^\s"'<>]+$/.test(srv)) return err('The address should start with https://');
+    if (!srv && !pageServer()) return err('Add the address of your sync site.');
+    err(''); el.disabled = true; el.textContent = 'Connecting…';
+    try {
+      const r = await connectSync(pin, srv);
+      if (r === 'ask') {
+        const p = pendingCloud;
+        openSheet('Your data is in two places', `<p style="font-size:15px;line-height:1.45">The cloud already has data (${counts(p.R)}), and this device has its own (${counts(S)}).</p>
+          <div class="group"><div class="lbl">Merge both · recommended</div><p class="sm" style="margin-top:6px">Keeps everything from both. Where the same item was changed in both places, the newer change wins.</p><div class="btns"><button class="btn" data-act="syncChoose" data-v="merge">Merge both</button></div></div>
+          <div class="group"><div class="lbl">Use the cloud copy</div><p class="sm" style="margin-top:6px">Replaces what's on this device with the cloud data. The cloud isn't changed.</p><div class="btns"><button class="btn g" data-act="syncChoose" data-v="cloud">Use cloud copy</button></div></div>`);
+        return;
+      }
+      render(); rebuildSettings(); syncNow(true);
+      toast(r === 'took' ? 'Connected · loaded your data from the cloud' : 'Connected · your data is now in the cloud', 3000);
+    } catch (e) { err(syncErrText(e)); el.disabled = false; el.textContent = 'Connect'; }
+  },
+  syncChoose(el) {
+    if (!pendingCloud) return closeSheets(1);
+    finishConnect(el.dataset.v); closeSheets(1); render(); rebuildSettings(); syncNow(true);
+    toast(el.dataset.v === 'cloud' ? 'Connected · using the cloud copy' : 'Connected · merged both', 3000);
+  },
+  syncNowBtn() { syncNow(true); },
+  syncPin() {
+    const pin = V('spin2').trim(); if (!/^\d{4,8}$/.test(pin)) return toast('Enter your 4-digit PIN');
+    SC.pin = pin; saveSC(); syncNow(true);
+  },
+  syncOff() {
+    confirmSheet('Stop syncing on this device? Your data stays here and the cloud copy isn’t touched. You can connect again any time.', 'Disconnect', () => {
+      disconnectSync(); closeSheets(1); rebuildSettings(); toast('Sync is off on this device');
+    }, false);
+  },
+  eraseAll() {
+    const msg = SC.on
+      ? 'Erase all goals, systems, tasks and spending? Sync is on, so this also erases them <b>from the cloud and your other devices</b>. To clear only this device, disconnect sync first. Export a backup first if you might need them.'
+      : 'Erase all goals, systems, tasks, spending and settings on this phone? Export a backup first if you might need them.';
+    confirmSheet(msg, 'Erase everything', () => {
+      const del = S.del, watch = S.settings.watch; S = defaults(); S.del = del; S.settings.watch = watch;
+      save(); pickTheme(); closeAllSheets(); ui.tab = 'today'; render(); toast('All data erased');
+    });
+  }
+};
+function numChange(el, add) {
+  const g = goalOf(el.dataset.id); if (!g) return;
+  const v = parseAmt(String(V('numv')).replace(/^\+/, ''));
+  const neg = /^\s*-/.test(V('numv'));
+  if (!Number.isFinite(v) && !neg) return showErr('Type a number, e.g. 2 or 5m.');
+  const val = neg ? -parseAmt(V('numv').replace(/^\s*-/, '')) : v;
+  if (!Number.isFinite(val)) return showErr('Type a number, e.g. 2 or 5m.');
+  g.cur = add ? g.cur + val : val; g.cur = Math.max(-1e15, Math.min(1e15, g.cur)); g.updated = Date.now();
+  commit(g.target && g.cur >= g.target ? 'Target reached. Well walked.' : 'Updated');
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-act]'); if (!el) return;
+  const fn = A[el.dataset.act]; if (!fn) return;
+  e.preventDefault();
+  try { fn(el, e); } catch (err) { logDiag(el.dataset.act + ': ' + (err && err.message)); toast('Something went wrong; it was logged in Settings'); }
+});
+document.addEventListener('input', e => {
+  const t = e.target;
+  if (t.id === 'cvA' || t.id === 'cvC') {
+    const a = parseAmt($('#cvA').value), c = $('#cvC').value, r = S.settings.rates[c];
+    $('#cvOut').textContent = Number.isFinite(a) && r ? `${fmtNum(a)} ${c} = ${fmtVND(a * r)}` : '= 0 ₫';
+  }
+  if (t.name === 'amount' || t.name === 'cur') {
+    const sh = topSheet(); const p = sh && sh.el.querySelector('#expPrev'); if (!p) return;
+    const a = parseAmt(V('amount')), c = V('cur'), r = c === 'VND' ? 1 : S.settings.rates[c];
+    p.textContent = Number.isFinite(a) && a > 0 && r ? '= ' + fmtVND(a * r) : 'Tip: 65k = 65,000 · 1.2m = 1,200,000';
+  }
+});
+document.addEventListener('change', e => { if (e.target.name === 'cur') e.target.dispatchEvent(new Event('input', { bubbles: true })); });
+
+function onPop() {
+  if (ignorePop > 0) { ignorePop--; return; }
+  if (!sheets.length && watchBack()) return;
+  if (sheets.length) { const sh = sheets.pop(); sh.el.remove(); if (!sheets.length) document.body.style.overflow = ''; return; }
+  if (Date.now() - guardTime < 2500) { guardTime = 0; try { history.back(); } catch (e) { /* ignore */ } return; }
+  guardTime = Date.now();
+  try { history.pushState({ way: 'guard' }, ''); } catch (e) { /* ignore */ }
+  toast('Swipe back again to leave', 2500);
+}
+function markVis(v) { lsSet(LS_VIS, JSON.stringify({ vis: v, t: Date.now() })); }
+function isTyping() { const a = document.activeElement; return a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName); }
+
+/* ---------- init ---------- */
+function init() {
+  storageProbe();
+  const firstRun = lsGet(LS_KEY) === null;
+  S = loadState();
+  takeSnap(); loadSC();
+  if (firstRun) { loadExamples(); S.meta.changes = 0; save(); }
+  // the-way.html#watch or #phone switches this device's view (handy when auto-detect guesses wrong)
+  const hv = { '#watch': 'on', '#phone': 'off', '#auto': 'auto' }[String(location.hash).toLowerCase()];
+  if (hv) { S.settings.watch = hv; save(); try { history.replaceState(history.state, '', location.pathname + location.search); } catch (e) { /* ignore */ } }
+  try {
+    const vis = JSON.parse(lsGet(LS_VIS) || 'null');
+    if (vis && vis.vis === 1 && Date.now() - vis.t < 10 * 60e3 && !S.settings.lite) {
+      S.settings.lite = true; liteAuto = true; save();
+      logDiag('Last session closed unexpectedly while open; Lite mode switched on');
+    }
+  } catch (e) { /* ignore */ }
+  markVis(1);
+  pickTheme();
+  document.body.innerHTML = `<header class="hd" id="hd"><img id="scene" alt=""><div class="hd-top"><div class="stamp"><b>道</b><span>The Way</span><button id="sdot" class="sdot s-off hidden" data-act="syncOpen" aria-label="Sync status"></button></div><button class="hbtn" data-act="settings" aria-label="Settings">${IC.gear}</button></div><div class="hd-main" id="hdMain"></div></header>
+  <main class="wrap" id="main"></main>
+  <nav class="tabs"><button class="tab" data-act="tab" data-tab="today">${IC.today}Today</button><button class="tab" data-act="tab" data-tab="systems">${IC.systems}Systems</button><div class="fabw"><button class="fab" data-act="add" aria-label="Add">${IC.plus}</button></div><button class="tab" data-act="tab" data-tab="tasks">${IC.tasks}Tasks</button><button class="tab" data-act="tab" data-tab="goals">${IC.goals}Goals</button><button class="tab" data-act="tab" data-tab="budget">${IC.budget}Budget</button></nav>
+  <div id="sheets"></div><div id="toast" role="status"></div><input type="file" id="impFile" accept=".json,application/json,text/plain" class="hidden">`;
+  $('#impFile').addEventListener('change', async e => {
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    try { handleImportText(await f.text()); } catch (err) { importFail('That file couldn’t be read.'); }
+  });
+  try {
+    const st = history.state;
+    if (!st || st.way !== 'guard') { if (st && st.way === 'sheet') history.replaceState({ way: 'guard' }, ''); else { history.replaceState({ way: 'base' }, ''); history.pushState({ way: 'guard' }, ''); } }
+  } catch (e) { logDiag('history unavailable: ' + e.message); }
+  window.addEventListener('popstate', onPop);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') { markVis(0); flushOnHide(); }
+    else { markVis(1); lastPhase = ''; if (!isTyping()) render(); if (SC.on) syncNow(false); }
+  });
+  window.addEventListener('online', () => { if (SC.on) syncNow(false); });
+  window.addEventListener('offline', () => { if (SC.on) setSync('offline'); });
+  document.addEventListener('focusout', () => setTimeout(() => { if (renderWaiting && !isTyping()) { renderWaiting = false; render(); refreshSheets(); } }, 50));
+  window.addEventListener('pagehide', () => markVis(0));
+  window.addEventListener('pageshow', e => { if (e.persisted) { markVis(1); render(); } });
+  window.addEventListener('error', e => logDiag('error: ' + (e.message || 'unknown') + (e.lineno ? ' @' + e.lineno : '')));
+  window.addEventListener('unhandledrejection', e => logDiag('promise: ' + (e.reason && e.reason.message || e.reason)));
+  render();
+  if (SC.on) { setSync('busy'); syncNow(false); }
+  try { if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(e => logDiag('offline cache: ' + e.message)); } catch (e) { /* ignore */ }
+  if (liteAuto) toast('Lite mode switched on after an unexpected close', 3500);
+  setInterval(() => {
+    if (document.visibilityState !== 'visible') return;
+    markVis(1);
+    if (!isTyping()) render();
+    if (SC.on) syncNow(false);
+  }, 30000);
+  setInterval(() => {
+    if (document.visibilityState !== 'visible') return;
+    if (isWatch()) { const n = now(), t = pad(n.getHours()) + ':' + pad(n.getMinutes()); if (t !== ui.wClock) { ui.wClock = t; if (!isTyping()) render(); } return; }
+    const c = $('#clk'); if (c) { const n = now(); const t = pad(n.getHours()) + ':' + pad(n.getMinutes()); if (c.textContent !== t) c.textContent = t; }
+  }, 5000);
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+'use strict';
+/* ===== watch.js — ring hub for a round watch screen =====
+   Home: today's ring, Now/Next and four round buttons. Each button opens one simple screen.
+   Back (button or swipe) always returns to Home. No text typing: amounts and the PIN use a pad. */
+Object.assign(ui, { w: 'home', wAmt: '', wPin: '', wArm: 0 });
+
+function isWatch() {
+  const m = S && S.settings.watch;
+  if (m === 'on') return true;
+  if (m === 'off') return false;
+  const w = window.innerWidth || 0, h = window.innerHeight || 0, big = Math.max(w, h);
+  return w > 0 && (w <= 320 || (big <= 600 && Math.abs(w - h) <= 0.25 * big));
+}
+function watchColors() {
+  const t = THEMES[THEME] || THEMES.sea, r = document.documentElement.style;
+  r.setProperty('--wac', mix(t.ac, '#FFFFFF', 0.38));
+  r.setProperty('--wac2', mix(t.ac2, '#FFFFFF', 0.3));
+}
+function wGo(screen) {
+  if (ui.w === 'home' && screen !== 'home') { try { history.pushState({ way: 'w' }, ''); } catch (e) { /* ignore */ } }
+  ui.w = screen; ui.wArm = 0; render();
+  const v = document.querySelector('#watch .wv'); if (v) v.scrollTop = 0;
+}
+function wHome() {
+  if (ui.w === 'home') return;
+  let st = null; try { st = history.state; } catch (e) { /* ignore */ }
+  if (st && st.way === 'w') { try { history.back(); return; } catch (e) { /* fall through */ } }
+  ui.w = 'home'; render();
+}
+/* called first by onPop: swipe-back inside the watch view goes Home */
+function watchBack() {
+  if (!isWatch() || ui.w === 'home') return false;
+  ui.w = 'home'; ui.wAmt = ''; ui.wPin = ''; ui.wArm = 0; render(); return true;
+}
+function watchSyncChanged() {
+  if (!isWatch()) return;
+  if (ui.w === 'set') render();
+  else { const d = document.querySelector('#watch .wtop .sdot'); if (d) d.className = 'sdot s-' + (SC.on ? SY.st : 'off'); }
+}
+
+/* ---------- screens ---------- */
+function wRing(p, color) {
+  const C = 2 * Math.PI * 47;
+  return `<svg class="wring" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><circle cx="50" cy="50" r="47" stroke="#2A3440" stroke-width="2.4" fill="none"/>` +
+    (p > 0 ? `<circle cx="50" cy="50" r="47" stroke="${color}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-dasharray="${(C * clamp(p)).toFixed(2)} ${C.toFixed(2)}" transform="rotate(-90 50 50)"/>` : '') + '</svg>';
+}
+function wTop() {
+  const n = now();
+  return `<button class="wtop" data-act="wGo" data-v="set" aria-label="Settings and sync">${pad(n.getHours())}:${pad(n.getMinutes())}${SC.on ? `<span class="sdot s-${SY.st}"></span>` : '<span style="font-size:4vmin">⚙</span>'}</button>`;
+}
+function wHomeView() {
+  const t = todayStats(), I = nowInfo();
+  let lab, title, btn = '';
+  if (I.cur) {
+    const done = isDone(I.cur.s, I.k);
+    lab = I.mode === 'clock' ? 'Now · ' + fmtMin(I.cur.end - I.nm) + ' left' : 'Now · started';
+    title = I.cur.s.title;
+    btn = `<button class="wbtn" data-act="nowDone">${done ? 'Next ›' : '✓ Done'}</button>`;
+  } else if (I.next) {
+    lab = 'Next ' + I.next.s.time + ' · in ' + fmtMin(I.next.start - I.nm);
+    title = I.next.s.title;
+    btn = `<button class="wbtn g" data-act="nowStart">Start now</button>`;
+  } else {
+    const n = now();
+    lab = DOW[n.getDay()] + ' ' + n.getDate() + ' ' + MON[n.getMonth()];
+    title = I.B.length ? (I.B.every(b => isDone(b.s, I.k)) ? 'All blocks done' : 'Blocks are over') : (t.total && t.left === 0 ? 'All done today' : 'A calm day');
+  }
+  const sub = t.total ? `${t.done} of ${t.total} done today${t.overdue ? ` · <span class="wbad">${t.overdue} late</span>` : ''}` : 'Nothing due today';
+  const back = I.mode === 'manual' ? `<button class="wsub" data-act="nowClock" style="text-decoration:underline">back to clock</button>` : '';
+  return wRing(t.total ? t.done / t.total : 0, 'var(--wac)') + wTop() +
+    `<div class="wv"><div class="wc mid"><div class="wlab">${esc(lab)}</div><div class="wbig" style="margin-top:1.4vmin">${esc(title)}</div><div class="wsub">${sub}</div>
+    <div class="wbtns">
+      <button class="wrb" data-act="wGo" data-v="sys" aria-label="Systems">${IC.systems}</button>
+      <button class="wrb" data-act="wGo" data-v="tasks" aria-label="Tasks">${IC.tasks}</button>
+      <button class="wrb hot" data-act="wGo" data-v="spend" aria-label="Add spending">${IC.plus}</button>
+      <button class="wrb" data-act="wGo" data-v="budget" aria-label="Budget">₫</button>
+    </div>${btn}${back}</div></div>`;
+}
+function wHead(txt) { return `<button class="whead" data-act="wHome"><b>‹</b>${esc(txt)}</button>`; }
+function wSysView() {
+  const k = todayKey();
+  const list = S.systems.filter(s => scheduledOn(s, k)).sort((a, b) => (a.time ? 0 : 1) - (b.time ? 0 : 1) || (a.time || '').localeCompare(b.time || '') || a.title.localeCompare(b.title));
+  const dn = list.filter(s => isDone(s, k)).length;
+  let h = wHead(list.length ? `Systems · ${dn} of ${list.length}` : 'Systems');
+  if (!list.length) h += `<div class="wempty">Nothing scheduled today.</div>`;
+  for (const s of list) {
+    const d = isDone(s, k);
+    h += `<button class="wrow${d ? ' dn' : ''}" data-act="sysToggle" data-id="${s.id}"><span class="wck${d ? ' on' : ''}"></span><span class="t">${esc(s.title)}<span class="s">${s.time ? esc(s.time) : 'Anytime'}</span></span></button>`;
+  }
+  return `<div class="wv"><div class="wc">${h}</div></div>`;
+}
+function wTaskView() {
+  const k = todayKey();
+  const open = S.tasks.filter(t => !t.done).sort((a, b) => (a.due || '9999').localeCompare(b.due || '9999') || b.prio - a.prio || a.created - b.created);
+  const late = open.filter(t => t.due && t.due < k), today = open.filter(t => t.due === k);
+  const soon = open.filter(t => !t.due || t.due > k).slice(0, 8);
+  const doneToday = S.tasks.filter(t => t.done && t.doneAt === k);
+  const row = t => `<button class="wrow${t.done ? ' dn' : ''}" data-act="taskToggle" data-id="${t.id}"><span class="wck sq${t.done ? ' on' : ''}"></span><span class="t">${esc(t.title)}${t.due && t.due > k ? `<span class="s">${esc(dueLabel(t).txt)}</span>` : ''}</span></button>`;
+  let h = wHead(`Tasks · ${open.length} open`);
+  if (!open.length && !doneToday.length) h += `<div class="wempty">All clear.</div>`;
+  if (late.length) h += `<div class="wsec bad">Late</div>` + late.map(row).join('');
+  if (today.length) h += `<div class="wsec">Today</div>` + today.map(row).join('');
+  if (doneToday.length) h += `<div class="wsec">Done today</div>` + doneToday.map(row).join('');
+  if (soon.length) h += `<div class="wsec">Later</div>` + soon.map(row).join('');
+  return `<div class="wv"><div class="wc">${h}</div></div>`;
+}
+function wPad(act) {
+  const k = ['1', '2', '3', 'del', '4', '5', '6', '0', '7', '8', '9', act === 'wKey' ? '000' : ''];
+  return `<div class="wpad">${k.map(v => v === '' ? '<span></span>' : `<button class="${v === '000' ? 'sm' : ''}" data-act="${act}" data-v="${v}" aria-label="${v === 'del' ? 'Delete' : v}">${v === 'del' ? '⌫' : v}</button>`).join('')}</div>`;
+}
+function wSpendView() {
+  const n = Number(ui.wAmt || 0);
+  return `<div class="wv"><div class="wc" style="padding-top:11vmin">${wHead('Spend')}
+    <div class="wamt">${n ? n.toLocaleString('en-US') : '0'} <i>₫</i></div>${wPad('wKey')}
+    <button class="wbtn a2" data-act="wNext" ${n > 0 ? '' : 'disabled'}>Next ›</button></div></div>`;
+}
+function wCatView() {
+  const n = Number(ui.wAmt || 0);
+  return `<div class="wv"><div class="wc">${wHead(n.toLocaleString('en-US') + ' ₫ · for?')}
+    <div class="wgrid">${S.cats.map(c => `<button data-act="wCat" data-id="${c.id}">${esc(c.name)}</button>`).join('')}</div></div></div>`;
+}
+function wBudgetView() {
+  const k = todayKey(), ym = monthKey(k), m = monthStats(ym);
+  const over = m.budget > 0 && m.spent > m.budget, p = m.budget > 0 ? m.spent / m.budget : 0;
+  const todays = S.expenses.filter(e => e.date === k && !e.out);
+  const tSum = todays.reduce((a, e) => a + e.amt, 0);
+  const last = [...S.expenses].filter(e => e.date === k).sort((a, b) => b.created - a.created)[0];
+  let h = wHead('Budget · ' + MON[Number(ym.slice(5)) - 1]);
+  h += m.budget > 0
+    ? `<div class="wamt ${over ? 'wbad' : ''}" style="margin-top:2vmin">${fmtShort(Math.abs(m.left))} <i>₫</i></div><div class="wsub" style="margin-top:-1.5vmin">${over ? 'over budget' : 'left · ' + fmtShort(m.perDay) + ' a day'}</div>`
+    : `<div class="wempty">No monthly budget set. Set one on your phone.</div>`;
+  h += `<div style="margin-top:4vmin"><div class="wkv"><span>Today</span><b>${fmtShort(tSum)} ₫</b></div><div class="wkv"><span>This month</span><b>${fmtShort(m.spent)} ₫</b></div>${m.budget > 0 ? `<div class="wkv"><span>Budget</span><b>${fmtShort(m.budget)} ₫</b></div>` : ''}</div>`;
+  if (last) {
+    const c = catOf(last.cat);
+    h += `<div class="wnote" style="margin-top:4vmin">Last: ${fmtShort(last.amt)} ₫${c ? ' · ' + esc(c.name) : ''}</div>
+      <button class="wbtn d" data-act="wUndo" data-id="${last.id}">${ui.wArm === last.id ? 'Tap again to remove' : 'Remove last'}</button>`;
+  }
+  return wRing(p, over ? '#F28B7D' : 'var(--wac2)') + `<div class="wv"><div class="wc">${h}</div></div>`;
+}
+function wSetView() {
+  let h = wHead(SC.on ? 'Settings' : 'Connect sync');
+  if (!SC.on) {
+    const canSync = !!apiBase();
+    if (pendingCloud) {
+      h += `<div class="wnote">This watch already has its own data. Merge it with the cloud, or use the cloud copy?</div>
+        <button class="wbtn" data-act="wChoose" data-v="merge">Merge both</button><button class="wbtn g" data-act="wChoose" data-v="cloud">Use cloud copy</button>`;
+    } else if (!canSync) {
+      h += `<div class="wnote">Open this tool from your sync site to sync on the watch.</div>`;
+    } else {
+      h += `<div class="wnote" style="margin-top:0">Sync PIN</div><div class="wdots">${[0, 1, 2, 3].map(i => `<i class="${i < ui.wPin.length ? 'on' : ''}"></i>`).join('')}</div>${wPad('wPinKey')}
+        <button class="wbtn" data-act="wConnect" ${ui.wPin.length >= 4 ? '' : 'disabled'}>Connect</button>`;
+      if (SY.msg && SY.st !== 'ok') h += `<div class="wnote wbad">${esc(SY.msg)}</div>`;
+    }
+  } else if (SY.st === 'pin') {
+    h += `<div class="wnote wbad">${esc(SY.msg || 'PIN not accepted')}</div><div class="wdots">${[0, 1, 2, 3].map(i => `<i class="${i < ui.wPin.length ? 'on' : ''}"></i>`).join('')}</div>${wPad('wPinKey')}
+      <button class="wbtn" data-act="wPinRetry" ${ui.wPin.length >= 4 ? '' : 'disabled'}>Try PIN</button>`;
+  } else {
+    h += `<div class="wlab" style="margin-top:2vmin">Cloud sync</div><div class="wnote" style="color:var(--wink)">${esc(syncLine())}</div>
+      ${SY.st !== 'ok' && SY.st !== 'busy' && SY.msg ? `<div class="wnote">${esc(SY.msg)}</div>` : ''}
+      <button class="wbtn" data-act="syncNowBtn">Sync now</button>`;
+  }
+  h += `<button class="wbtn g" data-act="wPhone" style="margin-top:6vmin">Phone view</button><div class="wnote">To come back, choose Watch view in the phone settings.</div>`;
+  return `<div class="wv"><div class="wc" style="padding-top:11vmin">${h}</div></div>`;
+}
+function renderWatch() {
+  watchColors();
+  let w = document.getElementById('watch');
+  if (!w) { w = document.createElement('div'); w.id = 'watch'; document.body.insertBefore(w, document.body.firstChild); }
+  const V = { home: wHomeView, sys: wSysView, tasks: wTaskView, spend: wSpendView, cat: wCatView, budget: wBudgetView, set: wSetView }[ui.w] || wHomeView;
+  const v = w.querySelector('.wv'), top = v ? v.scrollTop : 0, same = w.dataset.screen === ui.w;
+  w.innerHTML = V(); w.dataset.screen = ui.w;
+  const nv = w.querySelector('.wv'); if (nv && same) nv.scrollTop = top;
+}
+
+/* ---------- actions ---------- */
+Object.assign(A, {
+  wGo(el) { if (el.dataset.v === 'spend') ui.wAmt = ''; if (el.dataset.v === 'set') ui.wPin = ''; wGo(el.dataset.v); },
+  wHome() { ui.wAmt = ''; ui.wPin = ''; wHome(); },
+  wKey(el) {
+    const v = el.dataset.v;
+    if (v === 'del') ui.wAmt = ui.wAmt.slice(0, -1);
+    else if ((ui.wAmt + v).replace(/^0+/, '').length <= 12) ui.wAmt = (ui.wAmt + v).replace(/^0+/, '');
+    render();
+  },
+  wNext() { if (Number(ui.wAmt) > 0) { ui.w = 'cat'; render(); } },
+  wCat(el) {
+    const amt = Math.round(Number(ui.wAmt)); if (!(amt > 0) || amt > 1e13) return wGo('spend');
+    const c = catOf(el.dataset.id);
+    S.expenses.push({ id: uid('e'), date: todayKey(), amt, oa: amt, oc: 'VND', cat: c ? c.id : '', goal: '', note: '', out: false, created: Date.now() });
+    ui.wAmt = '';
+    commit('Added ' + fmtShort(amt) + ' ₫' + (c ? ' · ' + c.name : ''));
+    wHome();
+  },
+  wUndo(el) {
+    const id = el.dataset.id;
+    if (ui.wArm !== id) { ui.wArm = id; render(); setTimeout(() => { if (ui.wArm === id) { ui.wArm = 0; if (isWatch()) render(); } }, 4000); return; }
+    ui.wArm = 0; S.expenses = S.expenses.filter(e => e.id !== id); commit('Removed');
+  },
+  wPinKey(el) {
+    const v = el.dataset.v;
+    if (v === 'del') ui.wPin = ui.wPin.slice(0, -1); else if (ui.wPin.length < 8) ui.wPin += v;
+    render();
+  },
+  async wConnect(el) {
+    const pin = ui.wPin; if (!/^\d{4,8}$/.test(pin)) return;
+    el.disabled = true; el.textContent = 'Connecting…';
+    try {
+      const r = await connectSync(pin, '');
+      ui.wPin = '';
+      if (r === 'ask') return render();
+      SY.msg = ''; syncNow(true); toast(r === 'took' ? 'Connected · your data is here' : 'Connected', 2500); render();
+    } catch (e) { ui.wPin = ''; SY.msg = syncErrText(e); render(); }
+  },
+  wChoose(el) { if (!pendingCloud) return render(); finishConnect(el.dataset.v); syncNow(true); toast('Connected', 2000); render(); },
+  wPinRetry() { if (!/^\d{4,8}$/.test(ui.wPin)) return; SC.pin = ui.wPin; ui.wPin = ''; saveSC(); syncNow(true); render(); },
+  wPhone() { S.settings.watch = 'off'; save(); ui.w = 'home'; render(); },
+  watchMode(el) { S.settings.watch = el.dataset.v; save(); ui.w = 'home'; if (isWatch()) closeAllSheets(); render(); rebuildSettings(); toast(el.dataset.v === 'on' ? 'Watch view on' : el.dataset.v === 'off' ? 'Phone view' : 'Watch view picks itself by screen size'); }
+});
+window.addEventListener('resize', () => { if (S) { clearTimeout(window.__rz); window.__rz = setTimeout(render, 150); } });
+</script></body></html>
